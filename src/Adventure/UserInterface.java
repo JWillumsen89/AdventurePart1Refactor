@@ -1,3 +1,5 @@
+package Adventure;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -38,7 +40,6 @@ public class UserInterface {
 
   boolean helpMenu() {
     boolean helpMenuBoolean = true;
-
     System.out.println("\nHelp menu:");
     helpText();
     while (helpMenuBoolean) {

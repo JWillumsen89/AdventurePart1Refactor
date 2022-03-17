@@ -1,3 +1,5 @@
+package Adventure;
+
 import java.io.IOException;
 
 public class Adventure {

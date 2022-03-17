@@ -1,3 +1,5 @@
+package Adventure;
+
 import java.io.IOException;
 
 //GRASP Creator principle - Map is creator of rooms.
@@ -23,7 +25,7 @@ public class Map {
     //description = environment.descripRoom1();
     Room room1 = new Room(name, description);
 
-    //Room 2
+    //Adventure.Room 2
     name = "SMALL PATH";
     description = """
         Spiderwebs everywhere and you cant barely see anything in the dark.
@@ -32,7 +34,7 @@ public class Map {
     //description = environment.descripRoom2();
     Room room2 = new Room(name, description);
 
-    //Room 3
+    //Adventure.Room 3
     name = "DUGOUT AREA";
     description = """
         A small torch, hanging from the wall, brings a little bit of light to this weird, dugout room.
@@ -42,7 +44,7 @@ public class Map {
     //description = environment.descripRoom3();
     Room room3 = new Room(name, description);
 
-    //Room 4
+    //Adventure.Room 4
     name = "SLOPE INTO THE DARK";
     description = """
         A steep slope where lots of bats are staring at you from the ceiling!
@@ -51,7 +53,7 @@ public class Map {
     //description = environment.descripRoom4();
     Room room4 = new Room(name, description);
 
-    //Room 5
+    //Adventure.Room 5
     name = "CEREMONIAL ROOM";
     description = """
         You entered a ceremonial room!
@@ -61,7 +63,7 @@ public class Map {
     //description = environment.descripRoom5();
     Room room5 = new Room(name, description);
 
-    //Room 6
+    //Adventure.Room 6
     name = "WATERFALL";
     description = """
         Water erupting from a small crack in the ceiling creates a small pond that seems to be continuing into a small stream that disappears through the crack in the cave floor.
@@ -70,7 +72,7 @@ public class Map {
     //description = environment.descripRoom6();
     Room room6 = new Room(name, description);
 
-    //Room 7
+    //Adventure.Room 7
     name = "SKELETON ROOM";
     description = """
         DEATH! Lots of kills have been committed here! Skeletons all around, centipedes crawling in and out of nearby skull and the disgusting smell is making it hard to breath!
@@ -79,7 +81,7 @@ public class Map {
     //description = environment.descripRoom7();
     Room room7 = new Room(name, description);
 
-    //Room 8
+    //Adventure.Room 8
     name = "CAVE AND CAGES";
     description = """
         Everything suddenly changes.
@@ -89,7 +91,7 @@ public class Map {
     //description = environment.descripRoom8();
     Room room8 = new Room(name, description);
 
-    //Room 9
+    //Adventure.Room 9
     name = "STAIRWAY";
     description = """
         Man made creepy stairs!

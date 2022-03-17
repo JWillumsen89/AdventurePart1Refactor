@@ -1,21 +1,22 @@
+package Adventure;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Game {
-  private Room currentRoom;
-  private String playerName;
+
+
   final Scanner in = new Scanner(System.in);
   private boolean gameLoop = true;
   final UserInterface ui = new UserInterface();
   final Map map = new Map();
+  final Player player = new Player();
 
 
 
   void run() throws IOException {
 
     boolean gameRunning = true;
-
-
 
     ui.gameStartUp();
     while (gameRunning) {
@@ -49,53 +50,64 @@ public class Game {
     }
   }
 
-  void playerName() {
-    System.out.print("Warrior! Whats your name: ");
-    playerName = in.nextLine();
-    playerName = playerName.toUpperCase();
-  }
+
 
   void userInterface() {
-    String newLoc = "\n" + playerName + ", You walked into a new location!";
-    String cantGo = "you can't go that way";
-
     System.out.print("\n" + playerName + ", what do you want to do: ");
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
       case "look", "l" -> System.out.println("\n" + currentRoom);
       case "go north", "north", "go n", "n" -> {
-        if (currentRoom.getNorth() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getNorth();
-        } else {
+        player.north();
+        /*{
+          if (currentRoom.getNorth() != null) {
+            System.out.println(newLoc);
+            currentRoom = currentRoom.getNorth();
+          } else {
 
-          System.out.println(cantGo);
+            System.out.println(cantGo);
+          }
         }
+
+         */
       }
       case "go south", "south", "go s", "s" -> {
-        if (currentRoom.getSouth() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getSouth();
-        } else {
-          System.out.println(cantGo);
+        player.south();
+        /*{
+          if (currentRoom.getSouth() != null) {
+            System.out.println(newLoc);
+            currentRoom = currentRoom.getSouth();
+          } else {
+            System.out.println(cantGo);
+          }
         }
+
+         */
       }
       case "go west", "west", "go w", "w" -> {
+        player.west();
+        /*
         if (currentRoom.getWest() != null) {
           System.out.println(newLoc);
           currentRoom = currentRoom.getWest();
         } else {
           System.out.println(cantGo);
         }
+
+         */
       }
       case "go east", "east", "go e", "e" -> {
+        player.east();
+        /*
         if (currentRoom.getEast() != null) {
           System.out.println(newLoc);
           currentRoom = currentRoom.getEast();
         } else {
           System.out.println(cantGo);
         }
+
+         */
       }
       case "help", "h" -> ui.helpMenu();
       case "exit" -> ui.exit();

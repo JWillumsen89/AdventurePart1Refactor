@@ -1,3 +1,5 @@
+package Adventure;
+
 public class Room {
   private String roomName;
   private String roomDescription;
