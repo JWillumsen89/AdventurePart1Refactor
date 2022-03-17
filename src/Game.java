@@ -4,20 +4,30 @@ import java.util.Scanner;
 public class Game {
   private Room currentRoom;
   private String playerName;
-  Scanner in = new Scanner(System.in);
-  private boolean gameRunning = true;
-  //Environment environment = new Environment();
-  UserInterface ui = new UserInterface();
-  Map map = new Map();
+  final Scanner in = new Scanner(System.in);
+  private boolean gameLoop = true;
+  final UserInterface ui = new UserInterface();
+  final Map map = new Map();
 
-  void go() throws IOException {
-    map.createRooms();
-    currentRoom = map.getStartRoom();
+
+
+  void run() throws IOException {
+
+    boolean gameRunning = true;
+
+
+
     ui.gameStartUp();
-    mainMenu();
     while (gameRunning) {
-      userInterface();
+      mainMenu();
+      while (gameLoop) {
+        map.createRooms();
+        currentRoom = map.getStartRoom();
+        userInterface();
+        //gameLoop = ui.helpMenu();
+      }
     }
+    ui.exit();
   }
 
   void mainMenu() {
@@ -30,15 +40,12 @@ public class Game {
 
     switch (decision) {
       case "start", "s" -> {
+        gameLoop = true;
         playerName();
         System.out.println("\nGrab your sword and lets go!!");
-        userInterface();
       }
       case "exit", "e" -> ui.exit();
-      default -> {
-        ui.invalidAnswer();
-        mainMenu();
-      }
+      default -> ui.invalidAnswer();
     }
   }
 
@@ -62,6 +69,7 @@ public class Game {
           System.out.println(newLoc);
           currentRoom = currentRoom.getNorth();
         } else {
+
           System.out.println(cantGo);
         }
       }
@@ -94,5 +102,7 @@ public class Game {
       default -> ui.invalidAnswer();
     }
   }
+
+
 }
 

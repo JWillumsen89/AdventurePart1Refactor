@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class UserInterface {
-  Scanner in = new Scanner(System.in);
+  final Scanner in = new Scanner(System.in);
+
 
   void gameStartUp() {
     System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWELCOME TO: ");
@@ -35,25 +36,30 @@ public class UserInterface {
 
   }
 
-  void helpMenu() {
+  boolean helpMenu() {
+    boolean helpMenuBoolean = true;
+
     System.out.println("\nHelp menu:");
     helpText();
-    System.out.println("""
-        Return to Game [game]
-        Return to Main menu [main]
-        Exit Game [exit]""");
-    System.out.print("\nEnter decision:");
-    String helpMenuDecision = in.nextLine();
-    helpMenuDecision = helpMenuDecision.toLowerCase();
-    /*switch (helpMenuDecision) {
-      case "game", "g" -> playerControl();
-      case "main", "m" -> mainMenu();
-      case "exit", "e" -> exit();
-      default -> invalidAnswer();
+    while (helpMenuBoolean) {
+      System.out.println("""
+          Return to Game [game]
+          Return to Main menu [main]
+          Exit Game [exit]""");
+      System.out.print("\nEnter decision: ");
+      String helpMenuDecision = in.nextLine();
+      helpMenuDecision = helpMenuDecision.toLowerCase();
+      switch (helpMenuDecision) {
+        case "game", "g" -> helpMenuBoolean = false;
+        case "main", "m" -> {
+          //helpMenu = false;
+          return false;
+        }
+        case "exit", "e" -> exit();
+        default -> invalidAnswer();
+      }
     }
-
-     */
-
+    return true; //True if "m" is not picked.
   }
 
   void exit() {
@@ -69,7 +75,8 @@ public class UserInterface {
         | ) \\ \\__| (____/\\   | |   | ) \\ \\__| (___) |      | )   ( || (__/  )  \\   /  | (____/\\| )  \\  |   | |   | (___) || ) \\ \\__| (____/\\
         |/   \\__/(_______/   )_(   |/   \\__/(_______)      |/     \\|(______/    \\_/   (_______/|/    )_)   )_(   (_______)|/   \\__/(_______/""");
 
-    // gameRunning = false;
+
+    System.exit(0);
   }
 
   void invalidAnswer() {

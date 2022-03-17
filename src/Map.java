@@ -9,9 +9,6 @@ public class Map {
     return startRoom;
   }
 
-  /*public Map() throws IOException {
-    createRooms();
-  }*/
 
   void createRooms() throws IOException {
     String name;
