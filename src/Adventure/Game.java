@@ -23,7 +23,7 @@ public class Game {
       mainMenu();
       while (gameLoop) {
         map.createRooms();
-        currentRoom = map.getStartRoom();
+        //currentRoom = map.getStartRoom();
         userInterface();
         //gameLoop = ui.helpMenu();
       }
@@ -42,7 +42,7 @@ public class Game {
     switch (decision) {
       case "start", "s" -> {
         gameLoop = true;
-        playerName();
+       // playerName();
         System.out.println("\nGrab your sword and lets go!!");
       }
       case "exit", "e" -> ui.exit();
@@ -53,11 +53,11 @@ public class Game {
 
 
   void userInterface() {
-    System.out.print("\n" + playerName + ", what do you want to do: ");
+    //System.out.print("\n" + playerName + ", what do you want to do: ");
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
-      case "look", "l" -> System.out.println("\n" + currentRoom);
+     // case "look", "l" -> System.out.println("\n" + currentRoom);
       case "go north", "north", "go n", "n" -> {
         player.north();
         /*{
