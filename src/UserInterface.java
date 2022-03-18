@@ -25,7 +25,6 @@ public class UserInterface {
     return decision;
   }
 
-
   void printMain() {
     System.out.println("Main menu: \n");
     System.out.println("Start game [start]");
@@ -51,9 +50,8 @@ public class UserInterface {
   }
 
   void exit() {
-
-    System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tTHANK YOU FOR PLAYING: ");
     System.out.println("""
+                                                             THANK YOU FOR PLAYING:
          _______  _______ _________ _______  _______        _______  ______            _______  _       _________          _______  _______\s
         (  ____ )(  ____ \\\\__   __/(  ____ )(  ___  )      (  ___  )(  __  \\ |\\     /|(  ____ \\( (    /|\\__   __/|\\     /|(  ____ )(  ____ \\
         | (    )|| (    \\/   ) (   | (    )|| (   ) |      | (   ) || (  \\  )| )   ( || (    \\/|  \\  ( |   ) (   | )   ( || (    )|| (    \\/
@@ -62,8 +60,6 @@ public class UserInterface {
         | (\\ (   | (         | |   | (\\ (   | |   | |      | (   ) || |   ) | \\ \\_/ / | (      | | \\   |   | |   | |   | || (\\ (   | (     \s
         | ) \\ \\__| (____/\\   | |   | ) \\ \\__| (___) |      | )   ( || (__/  )  \\   /  | (____/\\| )  \\  |   | |   | (___) || ) \\ \\__| (____/\\
         |/   \\__/(_______/   )_(   |/   \\__/(_______)      |/     \\|(______/    \\_/   (_______/|/    )_)   )_(   (_______)|/   \\__/(_______/""");
-
-
     System.exit(0);
   }
 

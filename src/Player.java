@@ -3,10 +3,9 @@ import java.util.Scanner;
 public class Player {
   private Room currentRoom;
 
-
   private String playerName;
   private String newLoc;
-  String cantGo = "you can't go that way";
+  private String cantGo;
 
   void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
@@ -26,7 +25,7 @@ public class Player {
     playerName = in.nextLine();
     playerName = playerName.toUpperCase();
     newLoc = "\n" + playerName + ", You walked into a new location!";
-
+    cantGo = "\nyou can't go that way";
   }
 
   void movement(char command) {
@@ -60,5 +59,4 @@ public class Player {
       }
     }
   }
-
 }

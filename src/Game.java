@@ -9,16 +9,7 @@ public class Game {
   Player player = new Player();
   private char command;
 
-  void setCommand(char command) {
-    this.command = command;
-  }
-
-  char getCommand() {
-    return command;
-  }
-
-  void run() throws IOException {
-
+  void run() {
     boolean gameRunning = true;
 
     map.createRooms();
@@ -30,6 +21,7 @@ public class Game {
       playerDecisions();
     }
     ui.exit();
+
   }
 
   void mainMenu() {
@@ -44,21 +36,32 @@ public class Game {
     }
   }
 
-  char playerDecisions() {
+  void playerDecisions() {
     System.out.print("\n" + player.getPlayerName() + ", what do you want to do: ");
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
       case "look", "l" -> System.out.println("\n" + player.getCurrentRoom()); //TODO Print currentRoom
-      case "go north", "north", "go n", "n" -> {command = 'n'; player.movement(command);}
-      case "go south", "south", "go s", "s" -> {command = 's'; player.movement(command);}
-      case "go west", "west", "go w", "w" -> {command = 'w'; player.movement(command);}
-      case "go east", "east", "go e", "e" -> {command = 'e'; player.movement(command);}
+      case "go north", "north", "go n", "n" -> {
+        command = 'n';
+        player.movement(command);
+      }
+      case "go south", "south", "go s", "s" -> {
+        command = 's';
+        player.movement(command);
+      }
+      case "go west", "west", "go w", "w" -> {
+        command = 'w';
+        player.movement(command);
+      }
+      case "go east", "east", "go e", "e" -> {
+        command = 'e';
+        player.movement(command);
+      }
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
       default -> ui.invalidAnswer();
     }
-    return command;
   }
 }
 
