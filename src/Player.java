@@ -62,4 +62,10 @@ public class Player {
       }
     }
   }
+
+  void addItem (Item item) {
+
+
+
+  }
 }

@@ -7,6 +7,7 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
+  private Item item;
   private ArrayList<Item> items = new ArrayList<>();
 
   Room(String name, String roomDescription) {
@@ -59,7 +60,7 @@ public class Room {
     items.add(item);
   }
 
-  String getItems() {
+  String getItems() { //TODO skal have et andet navn
     String s = "";
     for (int i = 0; i < items.size(); i++) {
       s = s + items.get(i).getDescription() + "\n";
@@ -67,8 +68,33 @@ public class Room {
     return s;
   }
 
+
+  Item removeItem (Item item) {
+    this.item = item;
+    return item;
+  }
+
+  String removeItems() { //TODO skal have et andet navn
+    String s = "";
+    for (int i = 0; i < items.size(); i++) {
+      s = s + items.remove(i).getDescription() + "\n";
+    }
+    return s;
+  }
+
+
+
+  String removeItem(String item) {
+    return item;
+  }
+
+
+
+
+
   @Override
   public String toString() {
     return roomName + "\n\n" + roomDescription;
   }
+
 }

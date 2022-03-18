@@ -58,13 +58,14 @@ public class Game {
         command = 'e';
         player.movement(command);
       }
-      case "take" -> {
-        command = 't';
-      }
+      case "take" -> System.out.println(player.getCurrentRoom().removeItems());
+
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
       default -> ui.invalidAnswer();
     }
   }
+
 }
+
 

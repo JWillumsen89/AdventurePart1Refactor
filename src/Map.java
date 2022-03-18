@@ -20,6 +20,12 @@ public class Map {
     Item axe = new Item("Axe","\nThere is an axe here.");
     room1.addItems(axe);
 
+
+
+
+
+
+
     //Room 2
     name = "SMALL PATH";
     description = """
@@ -69,7 +75,7 @@ public class Map {
         By the water there a very oddly skeleton, that thankfully is not alive. Because those pointer teeth and sharp claws, must have injured somebody badly.
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.""";
     Room room6 = new Room(name, description);
-    Item morningstar = new Item("Morningstar","\nThere is an morningstar here");
+    Item morningstar = new Item("Morningstar","\nThere is a morningstar here");
     room6.addItems(morningstar);
 
     //Room 7
