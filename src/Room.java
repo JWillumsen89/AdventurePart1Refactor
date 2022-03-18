@@ -68,12 +68,6 @@ public class Room {
     return s;
   }
 
-
-  Item removeItem (Item item) {
-    this.item = item;
-    return item;
-  }
-
   String removeItems() { //TODO skal have et andet navn
     String s = "";
     for (int i = 0; i < items.size(); i++) {
@@ -82,15 +76,9 @@ public class Room {
     return s;
   }
 
-
-
   String removeItem(String item) {
     return item;
   }
-
-
-
-
 
   @Override
   public String toString() {
