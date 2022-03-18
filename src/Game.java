@@ -2,46 +2,40 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Game {
-  private Room currentRoom;
-  private String playerName;
+
   final Scanner in = new Scanner(System.in);
-  private boolean gameLoop = true;
   final UserInterface ui = new UserInterface();
   final Map map = new Map();
+  Player player = new Player();
+  private char command;
 
+  void setCommand(char command) {
+    this.command = command;
+  }
 
+  char getCommand() {
+    return command;
+  }
 
   void run() throws IOException {
 
     boolean gameRunning = true;
 
-
-
+    map.createRooms();
     ui.gameStartUp();
+    ui.printMain();
+    mainMenu();
     while (gameRunning) {
-      mainMenu();
-      while (gameLoop) {
-        map.createRooms();
-        currentRoom = map.getStartRoom();
-        userInterface();
-        //gameLoop = ui.helpMenu();
-      }
+      playerDecisions();
     }
     ui.exit();
   }
 
   void mainMenu() {
-    System.out.println("Main menu: \n");
-    System.out.println("Start game [start]");
-    System.out.println("Exit game [exit]");
-    System.out.print("\nEnter decision: ");
-    String decision = in.nextLine();
-    decision = decision.toLowerCase();
-
+    String decision = ui.getCommand();
     switch (decision) {
       case "start", "s" -> {
-        gameLoop = true;
-        playerName();
+        player.playerNameInput();
         System.out.println("\nGrab your sword and lets go!!");
       }
       case "exit", "e" -> ui.exit();
@@ -49,60 +43,20 @@ public class Game {
     }
   }
 
-  void playerName() {
-    System.out.print("Warrior! Whats your name: ");
-    playerName = in.nextLine();
-    playerName = playerName.toUpperCase();
-  }
-
-  void userInterface() {
-    String newLoc = "\n" + playerName + ", You walked into a new location!";
-    String cantGo = "you can't go that way";
-
-    System.out.print("\n" + playerName + ", what do you want to do: ");
+  void playerDecisions() {
+    System.out.print("\n" + player.getPlayerName() + ", what do you want to do: ");
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
-      case "look", "l" -> System.out.println("\n" + currentRoom);
-      case "go north", "north", "go n", "n" -> {
-        if (currentRoom.getNorth() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getNorth();
-        } else {
-
-          System.out.println(cantGo);
-        }
-      }
-      case "go south", "south", "go s", "s" -> {
-        if (currentRoom.getSouth() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getSouth();
-        } else {
-          System.out.println(cantGo);
-        }
-      }
-      case "go west", "west", "go w", "w" -> {
-        if (currentRoom.getWest() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getWest();
-        } else {
-          System.out.println(cantGo);
-        }
-      }
-      case "go east", "east", "go e", "e" -> {
-        if (currentRoom.getEast() != null) {
-          System.out.println(newLoc);
-          currentRoom = currentRoom.getEast();
-        } else {
-          System.out.println(cantGo);
-        }
-      }
-      case "help", "h" -> ui.helpMenu();
+      case "look", "l" -> System.out.println("\n"); //TODO Print currentRoom
+      case "go north", "north", "go n", "n" -> {command = 'n'; player.movement();}
+      case "go south", "south", "go s", "s" -> {command = 's'; player.movement();}
+      case "go west", "west", "go w", "w" -> {command = 'w'; player.movement();}
+      case "go east", "east", "go e", "e" -> {command = 'e'; player.movement();}
+      case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
       default -> ui.invalidAnswer();
     }
   }
-
-
 }
 

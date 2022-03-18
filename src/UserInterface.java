@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class UserInterface {
   final Scanner in = new Scanner(System.in);
 
-
   void gameStartUp() {
     System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWELCOME TO: ");
     System.out.println("""
@@ -17,6 +16,21 @@ public class UserInterface {
         |/   \\__/(_______/   )_(   |/   \\__/(_______)      |/     \\|(______/    \\_/   (_______/|/    )_)   )_(   (_______)|/   \\__/(_______/""");
 
     helpText();
+  }
+
+  String getCommand() {
+    String decision = in.nextLine();
+    decision = decision.toLowerCase();
+
+    return decision;
+  }
+
+
+  void printMain() {
+    System.out.println("Main menu: \n");
+    System.out.println("Start game [start]");
+    System.out.println("Exit game [exit]");
+    System.out.print("\nEnter decision: ");
   }
 
   void helpText() {
@@ -34,32 +48,6 @@ public class UserInterface {
                 
         """);
 
-  }
-
-  boolean helpMenu() {
-    boolean helpMenuBoolean = true;
-
-    System.out.println("\nHelp menu:");
-    helpText();
-    while (helpMenuBoolean) {
-      System.out.println("""
-          Return to Game [game]
-          Return to Main menu [main]
-          Exit Game [exit]""");
-      System.out.print("\nEnter decision: ");
-      String helpMenuDecision = in.nextLine();
-      helpMenuDecision = helpMenuDecision.toLowerCase();
-      switch (helpMenuDecision) {
-        case "game", "g" -> helpMenuBoolean = false;
-        case "main", "m" -> {
-          //helpMenu = false;
-          return false;
-        }
-        case "exit", "e" -> exit();
-        default -> invalidAnswer();
-      }
-    }
-    return true; //True if "m" is not picked.
   }
 
   void exit() {
