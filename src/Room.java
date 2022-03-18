@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Room {
   private String roomName;
   private String roomDescription;
@@ -5,6 +7,7 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
+  private ArrayList<Item> items = new ArrayList<>();
 
   Room(String name, String roomDescription) {
     setRoomName(name);
@@ -50,6 +53,10 @@ public class Room {
 
   Room getWest() {
     return west;
+  }
+
+  void additems(Item item) {
+    items.add(item);
   }
 
   @Override

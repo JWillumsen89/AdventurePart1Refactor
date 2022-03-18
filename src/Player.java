@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
@@ -6,6 +8,7 @@ public class Player {
   private String playerName;
   private String newLoc;
   private String cantGo;
+  ArrayList<String> inventory = new ArrayList<>(List.of());
 
   void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;

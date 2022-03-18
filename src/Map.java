@@ -19,6 +19,8 @@ public class Map {
         You have entered a dark cage with water dripping from the ceiling, shiny eyes in the distance from, what seems like hundreds of small animals, bats maybe!
         There is also some noise, a distant growling and something that sounds like footsteps, but hard to tell what this is and where its coming from.""";
     Room room1 = new Room(name, description);
+    Item axe = new Item("Axe","beskrivelse");
+    room1.additems(axe);
 
     //Room 2
     name = "SMALL PATH";
@@ -27,6 +29,8 @@ public class Map {
         You are also stepping in something that seems to be sticking to you boots. Mud, blood or something else disgusting.
         Goosebumps suddenly wanders all over your buddy, a scream from something erupts from something or someone in the distance!""";
     Room room2 = new Room(name, description);
+    Item sword = new Item("Sword","beskrivelse");
+    room2.additems(sword);
 
     //Room 3
     name = "DUGOUT AREA";
@@ -36,6 +40,8 @@ public class Map {
         Theres a small oddly looking table, containing the rest of what seems to have been someones lunch and very small leather bag, someone left in a hurry!.
         After looking a round, the silence gets interrupted by the same distant growling you have been hearing earlier""";
     Room room3 = new Room(name, description);
+    Item shield = new Item("Shield","beskrivelse");
+    room3.additems(shield);
 
     //Room 4
     name = "SLOPE INTO THE DARK";
@@ -44,6 +50,8 @@ public class Map {
         Small ticking noise are coming from the scorpions crawling on the walls.
         There is a weird smell here, rot, death and something you cant describe""";
     Room room4 = new Room(name, description);
+    Item spear = new Item("Spear","beskrivelse");
+    room4.additems(spear);
 
     //Room 5
     name = "CEREMONIAL ROOM";
@@ -53,6 +61,8 @@ public class Map {
         It runs towards you and throws across the room.
         Back on your feet, you grab your weapon and prepare for a hard fight""";
     Room room5 = new Room(name, description);
+    Item hammer = new Item("hammer","beskrivelse");
+    room5.additems(hammer);
 
     //Room 6
     name = "WATERFALL";
@@ -61,6 +71,8 @@ public class Map {
         By the water there a very oddly skeleton, that thankfully is not alive. Because those pointer teeth and sharp claws, must have injured somebody badly.
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.""";
     Room room6 = new Room(name, description);
+    Item morningstar = new Item("Morningstar","beskrivelse");
+    room6.additems(morningstar);
 
     //Room 7
     name = "SKELETON ROOM";
@@ -69,6 +81,8 @@ public class Map {
         Bones are breaking because you cant take a step without stepping on them.
         Then!! Goosebumps hits you when you suddenly hear a roar from deeper within the cave.""";
     Room room7 = new Room(name, description);
+    Item dagger = new Item("dagger","beskrivelse");
+    room7.additems(dagger);
 
     //Room 8
     name = "CAVE AND CAGES";
@@ -78,6 +92,8 @@ public class Map {
         But something is off, some of the monuments are smashed, claws marks, old blood marks and a weird quite atmosphere.
         In the corner is a big cage, broken, smashed actually! Something big was here!""";
     Room room8 = new Room(name, description);
+    Item armor = new Item("Armor","beskrivelse");
+    room8.additems(armor);
 
     //Room 9
     name = "STAIRWAY";
@@ -85,6 +101,8 @@ public class Map {
         Man made creepy stairs!
         Very slippery and small.""";
     Room room9 = new Room(name, description);
+    Item excalibur = new Item("Excalibur","beskrivelse");
+    room9.additems(excalibur);
 
 
     //room 1
