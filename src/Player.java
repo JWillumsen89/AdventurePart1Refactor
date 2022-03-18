@@ -4,8 +4,16 @@ public class Player {
   private Room currentRoom;
 
   private String playerName;
-  String newLoc = "\n" + playerName + ", You walked into a new location!";
+  private String newLoc;
   String cantGo = "you can't go that way";
+
+  void setCurrentRoom(Room currentRoom) {
+    this.currentRoom = currentRoom;
+  }
+
+  Room getCurrentRoom() {
+    return currentRoom;
+  }
 
   String getPlayerName() {
     return playerName;
@@ -16,32 +24,33 @@ public class Player {
     System.out.print("Warrior! Whats your name: ");
     playerName = in.nextLine();
     playerName = playerName.toUpperCase();
+    newLoc = "\n" + playerName + ", You walked into a new location!";
 
   }
 
-  void movement() {
-    if (game.getCommand() == 'n') {
+  void movement(char command) {
+    if (command == 'n') {
       if (currentRoom.getNorth() != null) {
         System.out.println(newLoc);
         currentRoom = currentRoom.getNorth();
       } else {
         System.out.println(cantGo);
       }
-    } else if (game.getCommand() == 's') {
+    } else if (command == 's') {
       if (currentRoom.getSouth() != null) {
         System.out.println(newLoc);
         currentRoom = currentRoom.getSouth();
       } else {
         System.out.println(cantGo);
       }
-    } else if (game.getCommand() == 'e') {
+    } else if (command == 'e') {
       if (currentRoom.getEast() != null) {
         System.out.println(newLoc);
         currentRoom = currentRoom.getEast();
       } else {
         System.out.println(cantGo);
       }
-    } else if (game.getCommand() == 'w') {
+    } else if (command == 'w') {
       if (currentRoom.getWest() != null) {
         System.out.println(newLoc);
         currentRoom = currentRoom.getWest();
