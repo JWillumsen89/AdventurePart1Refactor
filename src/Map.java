@@ -17,7 +17,7 @@ public class Map {
         You have entered a dark cage with water dripping from the ceiling, shiny eyes in the distance from, what seems like hundreds of small animals, bats maybe!
         There is also some noise, a distant growling and something that sounds like footsteps, but hard to tell what this is and where its coming from.""";
     Room room1 = new Room(name, description);
-    Item axe = new Item("Axe","beskrivelse");
+    Item axe = new Item("Axe","\nThere is an axe here.");
     room1.addItems(axe);
 
     //Room 2
@@ -27,7 +27,7 @@ public class Map {
         You are also stepping in something that seems to be sticking to you boots. Mud, blood or something else disgusting.
         Goosebumps suddenly wanders all over your buddy, a scream from something erupts from something or someone in the distance!""";
     Room room2 = new Room(name, description);
-    Item sword = new Item("Sword","beskrivelse");
+    Item sword = new Item("Sword","\nThere is a sword here");
     room2.addItems(sword);
 
     //Room 3
@@ -38,7 +38,7 @@ public class Map {
         Theres a small oddly looking table, containing the rest of what seems to have been someones lunch and very small leather bag, someone left in a hurry!.
         After looking a round, the silence gets interrupted by the same distant growling you have been hearing earlier""";
     Room room3 = new Room(name, description);
-    Item shield = new Item("Shield","beskrivelse");
+    Item shield = new Item("Shield","\nThere is a shield here");
     room3.addItems(shield);
 
     //Room 4
@@ -48,7 +48,7 @@ public class Map {
         Small ticking noise are coming from the scorpions crawling on the walls.
         There is a weird smell here, rot, death and something you cant describe""";
     Room room4 = new Room(name, description);
-    Item spear = new Item("Spear","beskrivelse");
+    Item spear = new Item("Spear","\nThere is a spear here");
     room4.addItems(spear);
 
     //Room 5
@@ -59,7 +59,7 @@ public class Map {
         It runs towards you and throws across the room.
         Back on your feet, you grab your weapon and prepare for a hard fight""";
     Room room5 = new Room(name, description);
-    Item hammer = new Item("hammer","beskrivelse");
+    Item hammer = new Item("hammer","\nThere is a hammer here");
     room5.addItems(hammer);
 
     //Room 6
@@ -69,7 +69,7 @@ public class Map {
         By the water there a very oddly skeleton, that thankfully is not alive. Because those pointer teeth and sharp claws, must have injured somebody badly.
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.""";
     Room room6 = new Room(name, description);
-    Item morningstar = new Item("Morningstar","beskrivelse");
+    Item morningstar = new Item("Morningstar","\nThere is an morningstar here");
     room6.addItems(morningstar);
 
     //Room 7
@@ -79,7 +79,7 @@ public class Map {
         Bones are breaking because you cant take a step without stepping on them.
         Then!! Goosebumps hits you when you suddenly hear a roar from deeper within the cave.""";
     Room room7 = new Room(name, description);
-    Item dagger = new Item("dagger","beskrivelse");
+    Item dagger = new Item("dagger","\nThere is a dagger here");
     room7.addItems(dagger);
 
     //Room 8
@@ -90,7 +90,7 @@ public class Map {
         But something is off, some of the monuments are smashed, claws marks, old blood marks and a weird quite atmosphere.
         In the corner is a big cage, broken, smashed actually! Something big was here!""";
     Room room8 = new Room(name, description);
-    Item armor = new Item("Armor","beskrivelse");
+    Item armor = new Item("Armor","\nThere is a suit of armor here");
     room8.addItems(armor);
 
     //Room 9
@@ -99,7 +99,7 @@ public class Map {
         Man made creepy stairs!
         Very slippery and small.""";
     Room room9 = new Room(name, description);
-    Item excalibur = new Item("Excalibur","beskrivelse");
+    Item excalibur = new Item("Excalibur","\nHere lies the legendary Excalibur");
     room9.addItems(excalibur);
 
 
