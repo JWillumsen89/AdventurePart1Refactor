@@ -55,8 +55,16 @@ public class Room {
     return west;
   }
 
-  void additems(Item item) {
+  void addItems(Item item) {
     items.add(item);
+  }
+
+  String getItems() {
+    String s = "";
+    for (int i = 0; i < items.size(); i++) {
+      s = s + items.get(i).getDescription() + "\n";
+    }
+    return s;
   }
 
   @Override

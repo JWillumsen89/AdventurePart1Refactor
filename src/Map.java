@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 //GRASP Creator principle - Map is creator of rooms.
 public class Map {
 
@@ -20,7 +18,7 @@ public class Map {
         There is also some noise, a distant growling and something that sounds like footsteps, but hard to tell what this is and where its coming from.""";
     Room room1 = new Room(name, description);
     Item axe = new Item("Axe","beskrivelse");
-    room1.additems(axe);
+    room1.addItems(axe);
 
     //Room 2
     name = "SMALL PATH";
@@ -30,7 +28,7 @@ public class Map {
         Goosebumps suddenly wanders all over your buddy, a scream from something erupts from something or someone in the distance!""";
     Room room2 = new Room(name, description);
     Item sword = new Item("Sword","beskrivelse");
-    room2.additems(sword);
+    room2.addItems(sword);
 
     //Room 3
     name = "DUGOUT AREA";
@@ -41,7 +39,7 @@ public class Map {
         After looking a round, the silence gets interrupted by the same distant growling you have been hearing earlier""";
     Room room3 = new Room(name, description);
     Item shield = new Item("Shield","beskrivelse");
-    room3.additems(shield);
+    room3.addItems(shield);
 
     //Room 4
     name = "SLOPE INTO THE DARK";
@@ -51,7 +49,7 @@ public class Map {
         There is a weird smell here, rot, death and something you cant describe""";
     Room room4 = new Room(name, description);
     Item spear = new Item("Spear","beskrivelse");
-    room4.additems(spear);
+    room4.addItems(spear);
 
     //Room 5
     name = "CEREMONIAL ROOM";
@@ -62,7 +60,7 @@ public class Map {
         Back on your feet, you grab your weapon and prepare for a hard fight""";
     Room room5 = new Room(name, description);
     Item hammer = new Item("hammer","beskrivelse");
-    room5.additems(hammer);
+    room5.addItems(hammer);
 
     //Room 6
     name = "WATERFALL";
@@ -72,7 +70,7 @@ public class Map {
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.""";
     Room room6 = new Room(name, description);
     Item morningstar = new Item("Morningstar","beskrivelse");
-    room6.additems(morningstar);
+    room6.addItems(morningstar);
 
     //Room 7
     name = "SKELETON ROOM";
@@ -82,7 +80,7 @@ public class Map {
         Then!! Goosebumps hits you when you suddenly hear a roar from deeper within the cave.""";
     Room room7 = new Room(name, description);
     Item dagger = new Item("dagger","beskrivelse");
-    room7.additems(dagger);
+    room7.addItems(dagger);
 
     //Room 8
     name = "CAVE AND CAGES";
@@ -93,7 +91,7 @@ public class Map {
         In the corner is a big cage, broken, smashed actually! Something big was here!""";
     Room room8 = new Room(name, description);
     Item armor = new Item("Armor","beskrivelse");
-    room8.additems(armor);
+    room8.addItems(armor);
 
     //Room 9
     name = "STAIRWAY";
@@ -102,7 +100,7 @@ public class Map {
         Very slippery and small.""";
     Room room9 = new Room(name, description);
     Item excalibur = new Item("Excalibur","beskrivelse");
-    room9.additems(excalibur);
+    room9.addItems(excalibur);
 
 
     //room 1

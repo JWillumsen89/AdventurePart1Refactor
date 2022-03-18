@@ -41,7 +41,7 @@ public class Game {
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
-      case "look", "l" -> System.out.println("\n" + player.getCurrentRoom()); //TODO Print currentRoom
+      case "look", "l" -> System.out.println("\n" + player.getCurrentRoom() + player.getCurrentRoom().getItems()); //TODO Print currentRoom
       case "go north", "north", "go n", "n" -> {
         command = 'n';
         player.movement(command);
@@ -57,6 +57,9 @@ public class Game {
       case "go east", "east", "go e", "e" -> {
         command = 'e';
         player.movement(command);
+      }
+      case "take" -> {
+        command = 't';
       }
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
