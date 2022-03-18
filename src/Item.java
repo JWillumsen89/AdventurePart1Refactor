@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Item {
   private String name;
@@ -26,3 +24,4 @@ public class Item {
     this.description = description;
   }
 }
+
