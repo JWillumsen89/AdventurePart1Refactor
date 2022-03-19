@@ -1,9 +1,9 @@
 
-public class Item {
+public class ItemClass {
   private String name;
   private String description;
 
-  Item(String name, String description) {
+  ItemClass(String name, String description) {
     this.name = name;
     this.description = description;
   }
@@ -12,17 +12,21 @@ public class Item {
     return name;
   }
 
-  public void setName(String name) {
+  /*public void setName(String name) {
     this.name = name;
   }
+
+   */
 
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  /*public void setDescription(String description) {
     this.description = description;
   }
+
+   */
 
 }
 

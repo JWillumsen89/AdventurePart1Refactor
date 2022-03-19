@@ -7,8 +7,9 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
-  private Item item;
-  private ArrayList<Item> items = new ArrayList<>();
+  private ItemClass item;
+  private ArrayList<ItemClass> items = new ArrayList<>();
+  Player player = new Player();
 
   Room(String name, String roomDescription) {
     setRoomName(name);
@@ -56,11 +57,11 @@ public class Room {
     return west;
   }
 
-  void addItems(Item item) {
+  void addItems(ItemClass item) {
     items.add(item);
   }
 
-  String getItems() { //TODO skal have et andet navn
+  String getItemsDescription() {
     String s = "";
     for (int i = 0; i < items.size(); i++) {
       s = s + items.get(i).getDescription() + "\n";
@@ -68,29 +69,26 @@ public class Room {
     return s;
   }
 
+  String showItemsList() {
+    int count = 1;
 
-  Item removeItem (Item item) {
-    this.item = item;
-    return item;
-  }
-
-  String removeItems() { //TODO skal have et andet navn
     String s = "";
     for (int i = 0; i < items.size(); i++) {
-      s = s + items.remove(i).getDescription() + "\n";
+      s = s + "[" + count + "] " + items.get(i).getName() + "\n";
+      count++;
+
     }
     return s;
   }
 
+  String removeItems() {
+    String s = "";
+    int i = 0;//TODO needs to be "takeAnswer" from Player class, from take method.
+    //TODO add item to inventory before removing it from currentRoom.
+    s = "You took: " + s + items.remove(i).getName() + "\n";
 
-
-  String removeItem(String item) {
-    return item;
+    return s;
   }
-
-
-
-
 
   @Override
   public String toString() {

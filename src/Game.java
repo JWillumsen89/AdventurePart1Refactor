@@ -1,4 +1,4 @@
-import java.io.IOException;
+
 import java.util.Scanner;
 
 public class Game {
@@ -41,7 +41,7 @@ public class Game {
     String playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
     switch (playerDecision) {
-      case "look", "l" -> System.out.println("\n" + player.getCurrentRoom() + player.getCurrentRoom().getItems()); //TODO Print currentRoom
+      case "look", "l" -> System.out.println("\n" + player.getCurrentRoom() + player.getCurrentRoom().getItemsDescription());
       case "go north", "north", "go n", "n" -> {
         command = 'n';
         player.movement(command);
@@ -58,8 +58,11 @@ public class Game {
         command = 'e';
         player.movement(command);
       }
-      case "take" -> System.out.println(player.getCurrentRoom().removeItems());
-
+      case "take", "t" -> {
+        command = 't';
+        player.take(command);
+      }
+      case "inventory", "i" -> System.out.println(player.showInventoryList());
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
       default -> ui.invalidAnswer();
