@@ -18,7 +18,7 @@ public class Map {
         There is also some noise, a distant growling and something that sounds like footsteps, but hard to tell what this is and where its coming from.
         """;
     Room room1 = new Room(name, description);
-    ItemClass axe = new ItemClass("Axe","\nThere is an axe here.");
+    ItemClass axe = new ItemClass("Axe", "\nThere is an axe here.");
     ItemClass gold = new ItemClass("Goldpieces", "\nSome small shiny pieces of gold are laying in the corner.");
     room1.addItems(axe);
     room1.addItems(gold);
@@ -31,7 +31,7 @@ public class Map {
         Goosebumps suddenly wanders all over your buddy, a scream from something erupts from something or someone in the distance!
         """;
     Room room2 = new Room(name, description);
-    ItemClass sword = new ItemClass("Sword","\nThere is a sword here");
+    ItemClass sword = new ItemClass("Sword", "\nThere is a sword here");
     room2.addItems(sword);
 
     //Room 3
@@ -43,7 +43,7 @@ public class Map {
         After looking a round, the silence gets interrupted by the same distant growling you have been hearing earlier
         """;
     Room room3 = new Room(name, description);
-    ItemClass shield = new ItemClass("Shield","\nThere is a shield here");
+    ItemClass shield = new ItemClass("Shield", "\nThere is a shield here");
     room3.addItems(shield);
 
     //Room 4
@@ -54,7 +54,7 @@ public class Map {
         There is a weird smell here, rot, death and something you cant describe
         """;
     Room room4 = new Room(name, description);
-    ItemClass spear = new ItemClass("Spear","\nThere is a spear here");
+    ItemClass spear = new ItemClass("Spear", "\nThere is a spear here");
     room4.addItems(spear);
 
     //Room 5
@@ -66,8 +66,8 @@ public class Map {
         Back on your feet, you grab your weapon and prepare for a hard fight
         """;
     Room room5 = new Room(name, description);
-    ItemClass hammer = new ItemClass("Hammer","\nThere is a hammer here");
-    room5.addItems(hammer);
+    ItemClass excalibur = new ItemClass("Excalibur", "\nHere lies the legendary Excalibur");
+    room5.addItems(excalibur);
 
     //Room 6
     name = "WATERFALL";
@@ -77,7 +77,7 @@ public class Map {
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.
         """;
     Room room6 = new Room(name, description);
-    ItemClass morningstar = new ItemClass("Morningstar","\nThere is a morningstar here");
+    ItemClass morningstar = new ItemClass("Morningstar", "\nThere is a morningstar here");
     room6.addItems(morningstar);
 
     //Room 7
@@ -88,7 +88,7 @@ public class Map {
         Then!! Goosebumps hits you when you suddenly hear a roar from deeper within the cave.
         """;
     Room room7 = new Room(name, description);
-    ItemClass dagger = new ItemClass("Dagger","\nThere is a dagger here");
+    ItemClass dagger = new ItemClass("Dagger", "\nThere is a dagger here");
     room7.addItems(dagger);
 
     //Room 8
@@ -100,7 +100,7 @@ public class Map {
         In the corner is a big cage, broken, smashed actually! Something big was here!
         """;
     Room room8 = new Room(name, description);
-    ItemClass armor = new ItemClass("Armor","\nThere is a suit of armor here");
+    ItemClass armor = new ItemClass("Armor", "\nThere is a suit of armor here");
     room8.addItems(armor);
 
     //Room 9
@@ -110,9 +110,8 @@ public class Map {
         Very slippery and small.
         """;
     Room room9 = new Room(name, description);
-    ItemClass excalibur = new ItemClass("Excalibur","\nHere lies the legendary Excalibur");
-    room9.addItems(excalibur);
-
+    ItemClass hammer = new ItemClass("Hammer", "\nThere is a hammer here");
+    room9.addItems(hammer);
 
     //room 1
     room1.setNorth(null);

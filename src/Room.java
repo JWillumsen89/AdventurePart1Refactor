@@ -8,7 +8,7 @@ public class Room {
   private Room east;
   private Room west;
   private ItemClass item;
-  private ArrayList<ItemClass> items = new ArrayList<>();
+  ArrayList<ItemClass> itemsRoom = new ArrayList<>();
   Player player = new Player();
 
   Room(String name, String roomDescription) {
@@ -58,35 +58,26 @@ public class Room {
   }
 
   void addItems(ItemClass item) {
-    items.add(item);
+    itemsRoom.add(item);
   }
 
   String getItemsDescription() {
     String s = "";
-    for (int i = 0; i < items.size(); i++) {
-      s = s + items.get(i).getDescription() + "\n";
+    for (int i = 0; i < itemsRoom.size(); i++) {
+      s = s + itemsRoom.get(i).getDescription();
     }
     return s;
   }
 
-  String showItemsList() {
+  String showItemsListRoom() {
     int count = 1;
 
     String s = "";
-    for (int i = 0; i < items.size(); i++) {
-      s = s + "[" + count + "] " + items.get(i).getName() + "\n";
+    for (int i = 0; i < itemsRoom.size(); i++) {
+      s = s + "[" + count + "] " + itemsRoom.get(i).getName() + "\n";
       count++;
 
     }
-    return s;
-  }
-
-  String removeItems() {
-    String s = "";
-    int i = 0;//TODO needs to be "takeAnswer" from Player class, from take method.
-    //TODO add item to inventory before removing it from currentRoom.
-    s = "You took: " + s + items.remove(i).getName() + "\n";
-
     return s;
   }
 
@@ -94,5 +85,4 @@ public class Room {
   public String toString() {
     return roomName + "\n\n" + roomDescription;
   }
-
 }

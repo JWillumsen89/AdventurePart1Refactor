@@ -1,13 +1,8 @@
-
-import java.util.Scanner;
-
 public class Game {
 
-  final Scanner in = new Scanner(System.in);
-  final UserInterface ui = new UserInterface();
-  final Map map = new Map();
+  UserInterface ui = new UserInterface();
+  Map map = new Map();
   Player player = new Player();
-  private char command;
 
   void run() {
     boolean gameRunning = true;
@@ -18,57 +13,34 @@ public class Game {
     ui.printMain();
     mainMenu();
     while (gameRunning) {
-      playerDecisions();
+      playerDecisionsSwitch();
     }
     ui.exit();
-
   }
 
   void mainMenu() {
-    String decision = ui.getCommand();
-    switch (decision) {
-      case "start", "s" -> {
-        player.playerNameInput();
-        System.out.println("\nGrab your sword and lets go!!");
-      }
+    ui.getCommand();
+    switch (ui.getDecision()) {
+      case "start", "s" -> player.playerNameInput();
       case "exit", "e" -> ui.exit();
       default -> ui.invalidAnswer();
     }
   }
 
-  void playerDecisions() {
-    System.out.print("\n" + player.getPlayerName() + ", what do you want to do: ");
-    String playerDecision = in.nextLine();
-    playerDecision = playerDecision.toLowerCase();
-    switch (playerDecision) {
-      case "look", "l" -> System.out.println("\n" + player.getCurrentRoom() + player.getCurrentRoom().getItemsDescription());
-      case "go north", "north", "go n", "n" -> {
-        command = 'n';
-        player.movement(command);
-      }
-      case "go south", "south", "go s", "s" -> {
-        command = 's';
-        player.movement(command);
-      }
-      case "go west", "west", "go w", "w" -> {
-        command = 'w';
-        player.movement(command);
-      }
-      case "go east", "east", "go e", "e" -> {
-        command = 'e';
-        player.movement(command);
-      }
-      case "take", "t" -> {
-        command = 't';
-        player.take(command);
-      }
-      case "inventory", "i" -> System.out.println(player.showInventoryList());
+  void playerDecisionsSwitch() {
+    player.playerDecisions();
+    switch (player.getPlayerDecision()) {
+      case "look", "l" -> player.look();
+      case "go north", "north", "go n", "n" -> player.movementNorth();
+      case "go south", "south", "go s", "s" -> player.movementSouth();
+      case "go west", "west", "go w", "w" -> player.movementWest();
+      case "go east", "east", "go e", "e" -> player.movementEast();
+      case "take", "t" -> player.take();
+      case "drop", "d" -> player.drop();
+      case "inventory", "i" -> player.showInventoryList();
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
       default -> ui.invalidAnswer();
     }
   }
-
 }
-
-

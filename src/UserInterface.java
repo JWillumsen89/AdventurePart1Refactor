@@ -1,7 +1,12 @@
 import java.util.Scanner;
 
 public class UserInterface {
+  private String decision;
   final Scanner in = new Scanner(System.in);
+
+  String getDecision() {
+    return decision;
+  }
 
   void gameStartUp() {
     System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWELCOME TO: ");
@@ -19,7 +24,7 @@ public class UserInterface {
   }
 
   String getCommand() {
-    String decision = in.nextLine();
+    decision = in.nextLine();
     decision = decision.toLowerCase();
 
     return decision;
@@ -46,7 +51,6 @@ public class UserInterface {
         exit      = Game terminates
                 
         """);
-
   }
 
   void exit() {
@@ -65,6 +69,5 @@ public class UserInterface {
 
   void invalidAnswer() {
     System.out.println("\nYOU ENTERED AN INVALID ANSWER!! TRY AGAIN");
-
   }
 }
