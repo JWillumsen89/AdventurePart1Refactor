@@ -1,16 +1,14 @@
 //GRASP Creator principle - Map is creator of rooms.
 public class Map {
-
   private Room startRoom;
+  private String name;
+  private String description;
 
   Room getStartRoom() {
     return startRoom;
   }
 
   void createRooms() {
-    String name;
-    String description;
-
     //Room1
     name = "CAVE ENTRANCE";
     description = """

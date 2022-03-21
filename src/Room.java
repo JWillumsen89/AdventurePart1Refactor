@@ -9,7 +9,6 @@ public class Room {
   private Room west;
   private ItemClass item;
   ArrayList<ItemClass> itemsRoom = new ArrayList<>();
-  Player player = new Player();
 
   Room(String name, String roomDescription) {
     setRoomName(name);
