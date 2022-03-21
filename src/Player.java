@@ -8,16 +8,11 @@ public class Player {
   private String newLoc = "\nYou walked into a new location!";
   private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
-  private int takeAnswer;
   private ArrayList<ItemClass> inventory = new ArrayList<>();
   private Scanner in = new Scanner(System.in);
 
   void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
-  }
-
-  Room getCurrentRoom() {
-    return currentRoom;
   }
 
   String getPlayerDecision() {
@@ -78,7 +73,7 @@ public class Player {
   }
 
   String takeAnswer() {
-    System.out.print("What do you want to take: ");
+    System.out.print("\nWhat do you want to take: ");
     playerAnswer = in.nextLine();
     playerAnswer = playerAnswer.toLowerCase();
     return playerAnswer;
@@ -97,8 +92,6 @@ public class Player {
   }
 
   public void take(Player player, String itemName) {
-    Room currentRoom = player.getCurrentRoom();
-
     if (itemName == null) {
       System.out.println("Sorry but there isn´t an item named" + itemName + " in the room");
       return;
