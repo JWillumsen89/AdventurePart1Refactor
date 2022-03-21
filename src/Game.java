@@ -33,8 +33,8 @@ public class Game {
       case "go west", "west", "go w", "w" -> player.movementWest();
       case "go east", "east", "go e", "e" -> player.movementEast();
       case "look", "l" -> player.look();
-      case "take", "t" -> player.take();
-      case "drop", "d" -> player.drop();
+      case "take", "t" -> player.take(player, player.takeAnswer());
+      case "drop", "d" -> player.drop(player, player.dropAnswer());
       case "inventory", "i" -> player.showInventoryList();
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();

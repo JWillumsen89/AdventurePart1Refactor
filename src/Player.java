@@ -5,8 +5,8 @@ public class Player {
   private Room currentRoom;
   private String playerName;
   private String playerDecision;
-  private String newLoc;
-  private String cantGo;
+  private String newLoc = "\nYou walked into a new location!";
+  private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
   private int takeAnswer;
   private ArrayList<ItemClass> inventory = new ArrayList<>();
@@ -16,12 +16,8 @@ public class Player {
     this.currentRoom = currentRoom;
   }
 
-  void setTakeAnswer(int takeAnswer) {
-    this.takeAnswer = takeAnswer;
-  }
-
-  int getTakeAnswer() {
-    return takeAnswer;
+  Room getCurrentRoom() {
+    return currentRoom;
   }
 
   String getPlayerDecision() {
@@ -39,8 +35,6 @@ public class Player {
     playerName = in.nextLine();
     playerName = playerName.toUpperCase();
     System.out.println("\nGrab your sword and lets go!!");
-    newLoc = "\n" + playerName + ", You walked into a new location!";
-    cantGo = "\nyou can't go that way";
   }
 
   void movementNorth() {
@@ -83,87 +77,79 @@ public class Player {
     System.out.println("\n" + currentRoom + currentRoom.getItemsDescription());
   }
 
-  void answer() {
+  String takeAnswer() {
+    System.out.print("What do you want to take: ");
     playerAnswer = in.nextLine();
     playerAnswer = playerAnswer.toLowerCase();
+    return playerAnswer;
   }
 
-  void takeItem(ItemClass item) {
-    //TODO Make this a list where you can write number or name of item instead!! But now we can pick up items and store them in inventory.
-    System.out.print("Do you want to take: " + item.getName() + "\nYes or No?: ");
-    answer();
-    switch (playerAnswer) {
-      case "yes", "y" -> {
-        addItemPlayer(item);
-        System.out.println("You took: " + item.getName());
-        take();
-      }
-      case "no", "n" -> System.out.println("You left the " + item.getName() + " here.");
-    }
+  String dropAnswer() {
+    showInventoryList();
+    System.out.print("What do you want to drop: ");
+    playerAnswer = in.nextLine();
+    playerAnswer = playerAnswer.toLowerCase();
+    return playerAnswer;
   }
 
-  void take() {
-    if (currentRoom.itemsRoom.size() == 0) {
-      System.out.println("\nThere are no items here!");
-    } else {
-      System.out.println("Those are the items here: \n" + currentRoom.showItemsListRoom());
-
-      for (int i = 0; i < currentRoom.itemsRoom.size(); i++) {
-        takeItem(currentRoom.itemsRoom.get(i));
-      }
-    }
+  public ArrayList<ItemClass> getInventory() {
+    return inventory;
   }
 
-  void dropItem(ItemClass item) {
-    //TODO Make this a list where you can write number or name of item instead!! But now we can drop items.
-    System.out.print("\nShould this item be dropped: " + item.getName() + " \nYes or No?: ");
-    answer();
-    switch (playerAnswer) {
-      case "yes", "y" -> {
-        removeItemPlayer(item);
-        System.out.println("You dropped: " + item.getName());
-        drop();
-      }
-      case "no", "n" -> System.out.println("");
+  public void take(Player player, String itemName) {
+    Room currentRoom = player.getCurrentRoom();
+
+    if (itemName == null) {
+      System.out.println("Sorry but there isn´t an item named" + itemName + " in the room");
+      return;
     }
 
+    for (ItemClass item : currentRoom.getItemsRoom()) {
+      if (item.getName().equalsIgnoreCase(itemName) || item.getDescription().equalsIgnoreCase(itemName)) {
+        player.addItemPlayer(item);
+        System.out.println("Added " + itemName + " to inventory");
+        return;
+      }
+    }
+    System.out.println("Sorry but there isn´t an item named " + itemName + " in the room");
   }
 
-  void drop() {
-    if (inventory.size() == 0) {
-      System.out.println("\nYour inventory is empty!");
-    } else {
-      for (ItemClass itemClass : inventory) {
-        showInventoryList();
-        System.out.println("Do you want to drop this item: " + itemClass.getName());
-        dropItem(itemClass);
+  public void drop(Player player, String itemName) {
+    if (itemName == null) {
+      System.out.println("You need to specify which Item you want to drop!");
+      return;
+    }
+
+    for (ItemClass item : player.getInventory()) {
+      if (item.getName().equalsIgnoreCase(itemName) || item.getDescription().equalsIgnoreCase(itemName)) {
+        player.removeItemPlayer(item);
+        System.out.println("Removed " + itemName + " from your inventory");
+        return;
       }
     }
+    System.out.println("You need to specify which Item you want to drop! ");
+  }
+
+  void addItemPlayer(ItemClass item) {
+    inventory.add(item);
+    currentRoom.removeItems(item);
+  }
+
+  void removeItemPlayer(ItemClass item) {
+    inventory.remove(item);
+    currentRoom.addItems(item);
   }
 
   void showInventoryList() {
-    int count = 1;
-
     if (inventory.size() == 0) {
       System.out.println("\nYour inventory is empty");
     } else {
       String s = "";
       for (ItemClass itemClass : inventory) {
-        s = s + "[" + count + "] " + itemClass.getName() + "\n";
-        count++;
+        s = s + itemClass.getName() + "\n";
       }
       System.out.println("\nINVENTORY: \n");
       System.out.println(s);
     }
-  }
-
-  void addItemPlayer(ItemClass item) {
-    inventory.add(item);
-    currentRoom.itemsRoom.remove(item);
-  }
-
-  void removeItemPlayer(ItemClass item) {
-    inventory.remove(item);
-    currentRoom.itemsRoom.add(item);
   }
 }
