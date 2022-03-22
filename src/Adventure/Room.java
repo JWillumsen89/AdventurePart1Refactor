@@ -1,4 +1,4 @@
-package Adventure;
+import java.util.ArrayList;
 
 public class Room {
   private String roomName;
@@ -7,6 +7,11 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
+  ArrayList<ItemClass> itemsRoom = new ArrayList<>();
+
+  ArrayList<ItemClass> getItemsRoom() {
+    return itemsRoom;
+  }
 
   Room(String name, String roomDescription) {
     setRoomName(name);
@@ -18,16 +23,8 @@ public class Room {
     this.roomName = roomName;
   }
 
-  String getRoomName() {
-    return roomName;
-  }
-
   void setRoomDescription(String roomDescription) {
     this.roomDescription = roomDescription;
-  }
-
-  String getRoomDescription() {
-    return roomDescription;
   }
 
   void setNorth(Room north) {
@@ -60,6 +57,22 @@ public class Room {
 
   Room getWest() {
     return west;
+  }
+
+  void addItems(ItemClass item) {
+    itemsRoom.add(item);
+  }
+
+  void removeItems(ItemClass item) {
+    itemsRoom.remove(item);
+  }
+
+  String getItemsDescription() {
+    String s = "";
+    for (int i = 0; i < itemsRoom.size(); i++) {
+      s = s + itemsRoom.get(i).getDescription();
+    }
+    return s;
   }
 
   @Override

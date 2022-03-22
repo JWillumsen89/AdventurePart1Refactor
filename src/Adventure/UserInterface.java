@@ -1,10 +1,12 @@
-package Adventure;
-
 import java.util.Scanner;
 
 public class UserInterface {
-  final Scanner in = new Scanner(System.in);
+  private String decision;
+  private Scanner in = new Scanner(System.in);
 
+  String getDecision() {
+    return decision;
+  }
 
   void gameStartUp() {
     System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWELCOME TO: ");
@@ -21,52 +23,45 @@ public class UserInterface {
     helpText();
   }
 
+  String getCommand() {
+    decision = in.nextLine();
+    decision = decision.toLowerCase();
+
+    return decision;
+  }
+
+  void printMain() {
+    System.out.print("""
+        Main menu:
+        Start game [start]
+        Exit game [exit]
+        """);
+
+    System.out.print("\nEnter decision: ");
+  }
+
   void helpText() {
     System.out.println("""
                 
         Throughout the game you can write the following commands:
                 
-        look      = Looking around at the current location
         go east   = Moves player towards east
         go west   = Moves player towards west
         go north  = Moves player towards north
         go south  = Moves player towards south
+        look      = Looking around at the current location
+        take      = Take items in the room
+        drop      = Drop items you have collected
+        inventory = Shows your inventory
         help      = Opens help menu
-        exit      = Game terminates
+        exit      = Exit game
                 
         """);
-
-  }
-
-  boolean helpMenu() {
-    boolean helpMenuBoolean = true;
-    System.out.println("\nHelp menu:");
-    helpText();
-    while (helpMenuBoolean) {
-      System.out.println("""
-          Return to Game [game]
-          Return to Main menu [main]
-          Exit Game [exit]""");
-      System.out.print("\nEnter decision: ");
-      String helpMenuDecision = in.nextLine();
-      helpMenuDecision = helpMenuDecision.toLowerCase();
-      switch (helpMenuDecision) {
-        case "game", "g" -> helpMenuBoolean = false;
-        case "main", "m" -> {
-          //helpMenu = false;
-          return false;
-        }
-        case "exit", "e" -> exit();
-        default -> invalidAnswer();
-      }
-    }
-    return true; //True if "m" is not picked.
   }
 
   void exit() {
-
-    System.out.println("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tTHANK YOU FOR PLAYING: ");
     System.out.println("""
+                                                             THANK YOU FOR PLAYING:
          _______  _______ _________ _______  _______        _______  ______            _______  _       _________          _______  _______\s
         (  ____ )(  ____ \\\\__   __/(  ____ )(  ___  )      (  ___  )(  __  \\ |\\     /|(  ____ \\( (    /|\\__   __/|\\     /|(  ____ )(  ____ \\
         | (    )|| (    \\/   ) (   | (    )|| (   ) |      | (   ) || (  \\  )| )   ( || (    \\/|  \\  ( |   ) (   | )   ( || (    )|| (    \\/
@@ -75,13 +70,10 @@ public class UserInterface {
         | (\\ (   | (         | |   | (\\ (   | |   | |      | (   ) || |   ) | \\ \\_/ / | (      | | \\   |   | |   | |   | || (\\ (   | (     \s
         | ) \\ \\__| (____/\\   | |   | ) \\ \\__| (___) |      | )   ( || (__/  )  \\   /  | (____/\\| )  \\  |   | |   | (___) || ) \\ \\__| (____/\\
         |/   \\__/(_______/   )_(   |/   \\__/(_______)      |/     \\|(______/    \\_/   (_______/|/    )_)   )_(   (_______)|/   \\__/(_______/""");
-
-
     System.exit(0);
   }
 
   void invalidAnswer() {
     System.out.println("\nYOU ENTERED AN INVALID ANSWER!! TRY AGAIN");
-
   }
 }
