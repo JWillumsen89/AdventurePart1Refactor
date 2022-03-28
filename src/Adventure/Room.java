@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 
 public class Room {
+
   private String roomName;
   private String roomDescription;
   private Room north;
   private Room south;
   private Room east;
   private Room west;
-  ArrayList<ItemClass> itemsRoom = new ArrayList<>();
+  private ArrayList<Item> itemsRoom = new ArrayList<>();
 
-  ArrayList<ItemClass> getItemsRoom() {
+  ArrayList<Item> getItemsRoom() {
     return itemsRoom;
   }
 
@@ -59,18 +60,18 @@ public class Room {
     return west;
   }
 
-  void addItems(ItemClass item) {
+  void addItems(Item item) {
     itemsRoom.add(item);
   }
 
-  void removeItems(ItemClass item) {
+  void removeItems(Item item) {
     itemsRoom.remove(item);
   }
 
   String getItemsDescription() {
     String s = "";
     for (int i = 0; i < itemsRoom.size(); i++) {
-      s = s + itemsRoom.get(i).getDescription();
+      s = s + itemsRoom.get(i).getDescription() + "[" + itemsRoom.get(i).getName() + "]";
     }
     return s;
   }
