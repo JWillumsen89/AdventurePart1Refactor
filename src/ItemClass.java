@@ -1,9 +1,9 @@
 
-public class Item {
+public class ItemClass {
   private String name;
   private String description;
 
-  Item(String name, String description) {
+  ItemClass(String name, String description) {
     this.name = name;
     this.description = description;
   }
@@ -23,6 +23,4 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-
 }
-

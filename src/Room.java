@@ -7,8 +7,9 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
-  private Item item;
-  private ArrayList<Item> items = new ArrayList<>();
+  private ItemClass item;
+  ArrayList<ItemClass> itemsRoom = new ArrayList<>();
+  Player player = new Player();
 
   Room(String name, String roomDescription) {
     setRoomName(name);
@@ -56,33 +57,32 @@ public class Room {
     return west;
   }
 
-  void addItems(Item item) {
-    items.add(item);
+  void addItems(ItemClass item) {
+    itemsRoom.add(item);
   }
 
-  String getItems() { //TODO skal have et andet navn
+  String getItemsDescription() {
     String s = "";
-    for (int i = 0; i < items.size(); i++) {
-      s = s + items.get(i).getDescription() + "\n";
+    for (int i = 0; i < itemsRoom.size(); i++) {
+      s = s + itemsRoom.get(i).getDescription();
     }
     return s;
   }
 
-  String removeItems() { //TODO skal have et andet navn
+  String showItemsListRoom() {
+    int count = 1;
+
     String s = "";
-    for (int i = 0; i < items.size(); i++) {
-      s = s + items.remove(i).getDescription() + "\n";
+    for (int i = 0; i < itemsRoom.size(); i++) {
+      s = s + "[" + count + "] " + itemsRoom.get(i).getName() + "\n";
+      count++;
+
     }
     return s;
-  }
-
-  String removeItem(String item) {
-    return item;
   }
 
   @Override
   public String toString() {
     return roomName + "\n\n" + roomDescription;
   }
-
 }
