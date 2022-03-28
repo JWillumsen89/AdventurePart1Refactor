@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class UserInterface {
   private String decision;
-  final Scanner in = new Scanner(System.in);
+  private Scanner in = new Scanner(System.in);
 
   String getDecision() {
     return decision;
@@ -31,9 +31,12 @@ public class UserInterface {
   }
 
   void printMain() {
-    System.out.println("Main menu: \n");
-    System.out.println("Start game [start]");
-    System.out.println("Exit game [exit]");
+    System.out.print("""
+        Main menu:
+        Start game [start]
+        Exit game [exit]
+        """);
+
     System.out.print("\nEnter decision: ");
   }
 
@@ -42,13 +45,16 @@ public class UserInterface {
                 
         Throughout the game you can write the following commands:
                 
-        look      = Looking around at the current location
         go east   = Moves player towards east
         go west   = Moves player towards west
         go north  = Moves player towards north
         go south  = Moves player towards south
+        look      = Looking around at the current location
+        take      = Take items in the room
+        drop      = Drop items you have collected
+        inventory = Shows your inventory
         help      = Opens help menu
-        exit      = Game terminates
+        exit      = Exit game
                 
         """);
   }

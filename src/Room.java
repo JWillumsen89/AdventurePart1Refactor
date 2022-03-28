@@ -7,9 +7,11 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
-  private ItemClass item;
   ArrayList<ItemClass> itemsRoom = new ArrayList<>();
-  Player player = new Player();
+
+  ArrayList<ItemClass> getItemsRoom() {
+    return itemsRoom;
+  }
 
   Room(String name, String roomDescription) {
     setRoomName(name);
@@ -61,22 +63,14 @@ public class Room {
     itemsRoom.add(item);
   }
 
+  void removeItems(ItemClass item) {
+    itemsRoom.remove(item);
+  }
+
   String getItemsDescription() {
     String s = "";
     for (int i = 0; i < itemsRoom.size(); i++) {
       s = s + itemsRoom.get(i).getDescription();
-    }
-    return s;
-  }
-
-  String showItemsListRoom() {
-    int count = 1;
-
-    String s = "";
-    for (int i = 0; i < itemsRoom.size(); i++) {
-      s = s + "[" + count + "] " + itemsRoom.get(i).getName() + "\n";
-      count++;
-
     }
     return s;
   }

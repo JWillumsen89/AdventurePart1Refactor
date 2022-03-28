@@ -1,12 +1,10 @@
 public class Game {
-
+  private boolean gameRunning = true;
   UserInterface ui = new UserInterface();
   Map map = new Map();
   Player player = new Player();
 
   void run() {
-    boolean gameRunning = true;
-
     map.createRooms();
     player.setCurrentRoom(map.getStartRoom());
     ui.gameStartUp();
@@ -30,13 +28,13 @@ public class Game {
   void playerDecisionsSwitch() {
     player.playerDecisions();
     switch (player.getPlayerDecision()) {
-      case "look", "l" -> player.look();
       case "go north", "north", "go n", "n" -> player.movementNorth();
       case "go south", "south", "go s", "s" -> player.movementSouth();
       case "go west", "west", "go w", "w" -> player.movementWest();
       case "go east", "east", "go e", "e" -> player.movementEast();
-      case "take", "t" -> player.take();
-      case "drop", "d" -> player.drop();
+      case "look", "l" -> player.look();
+      case "take", "t" -> player.take(player, player.takeAnswer());
+      case "drop", "d" -> player.drop(player, player.dropAnswer());
       case "inventory", "i" -> player.showInventoryList();
       case "help", "h" -> ui.helpText();
       case "exit" -> ui.exit();
