@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class UserInterface {
+
   private String decision;
   private Scanner in = new Scanner(System.in);
 
@@ -50,6 +51,10 @@ public class UserInterface {
         go north  = Moves player towards north
         go south  = Moves player towards south
         look      = Looking around at the current location
+        search    = Searching for items.
+        eat       = Eat food items.
+        drink     = Drink liquid items.
+        health    = Shows your health status.
         take      = Take items in the room
         drop      = Drop items you have collected
         inventory = Shows your inventory
@@ -75,5 +80,13 @@ public class UserInterface {
 
   void invalidAnswer() {
     System.out.println("\nYOU ENTERED AN INVALID ANSWER!! TRY AGAIN");
+  }
+
+  void gameOver() {
+    System.out.println("\nGAME OVER");
+  }
+
+  void winner() {
+    System.out.println("YOU SURVIVED THIS ADVENTURE!");
   }
 }
