@@ -15,7 +15,6 @@ public class Player {
   private int healthAmount = 100;
   private boolean playerAlive = true;
   private ArrayList<Item> inventory = new ArrayList<>();
-  private ArrayList<Item> equippedWeapon1 = new ArrayList<>();
   private Scanner in = new Scanner(System.in);
 
   public boolean isPlayerAlive() {
@@ -58,7 +57,6 @@ public class Player {
     if (weWantToGo != null) {
       currentRoom = weWantToGo;
       System.out.println(newLoc);
-      currentRoom = currentRoom.getEast();
     } else {
       System.out.println(cantGo);
     }
@@ -234,45 +232,6 @@ public class Player {
       System.out.println("\nINVENTORY: \n");
       System.out.println(s);
       System.out.println("GOLD STASH: " + goldAmount);
-    }
-  }
-
-  void equip (Player player,String itemName){
-    if (itemName == null) {
-      System.out.println("Lets move on");
-      return;
-    }
-
-    for (Item item : player.inventory) {
-      if (item.getName().equalsIgnoreCase(itemName)){
-        player.equipItemPlayer((Weapon)item);
-        System.out.println("You equipped [" + itemName + "]");
-        return;
-
-      }
-
-    }
-
-  }
-
-
-  void equipItemPlayer (Weapon item){
-    inventory.remove(item);
-    equippedWeapon1.add(item);
-
-  }
-
-  void showEquippedItem () {
-    if (equippedWeapon1.size() == 0) {
-      System.out.println("\nYour equipped is empty");
-    } else {
-      String s = "";
-      for (Item item : equippedWeapon1){
-        s = s + item.getName() + "\n";
-      }
-      System.out.println("\nEQUIPPED: \n");
-      System.out.println(s);
-
     }
   }
 }
