@@ -10,6 +10,7 @@ public class Player {
   private String newLoc = "\nYou walked into a new location!";
   private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
+  private String attackDecision;
   private int goldAmount = 0;
   private int healthAmount = 100;
   private int playerAttackDamage = 0;
@@ -67,6 +68,25 @@ public class Player {
     }
   }
 
+  public void attack(Player player, String attackWhichEnemy) {
+    System.out.println("Test");
+
+    if (attackWhichEnemy == null) {
+      System.out.println("You didnt type anything that's possible to attack.");
+      return;
+    }
+
+    for (Enemy enemy : currentRoom.getEnemyRoom()) {
+      if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
+        if (attackWhichEnemy instanceof Enemy) {
+          System.out.println("Added gold to your stash");
+          return;
+        }
+      }
+      System.out.println("Sorry but there isn´t an enemy named" + attackWhichEnemy + " in this room");
+    }
+  }
+
   public void look() {
     System.out.println("\n" + currentRoom);
     //System.out.println("\n" + currentRoom + currentRoom.getItemsDescription());
@@ -87,7 +107,7 @@ public class Player {
     return playerAnswer;
   }
 
-  public String answer(String message) {
+  public String InventoryAnswer(String message) {
     System.out.print("\n" + message);
     playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     return playerAnswer;
@@ -269,7 +289,7 @@ public class Player {
         if (item == equippedWeapon)
           equipS = equipS + item.getName() + "\n";
         else
-          s = s + item.getName()+ "\n";
+          s = s + item.getName() + "\n";
       }
       System.out.println("\nINVENTORY:");
       System.out.println(s);

@@ -49,6 +49,7 @@ public class Game {
       case "go south", "south", "go s", "s" -> player.movement(Direction.SOUTH);
       case "go west", "west", "go w", "w" -> player.movement(Direction.WEST);
       case "go east", "east", "go e", "e" -> player.movement(Direction.EAST);
+      case "attack", "a" -> player.attack(player, player.answer("What do you want to attack: "));
       case "looking", "look", "l" -> player.look();
       case "searching", "search", "se" -> player.search();
       case "eat" -> player.eat(player, player.inventoryAnswer("What do want to eat: "));
