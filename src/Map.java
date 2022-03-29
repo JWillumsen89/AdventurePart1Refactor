@@ -22,10 +22,12 @@ public class Map {
     Item apple = new Food("Apple", "\nThere is a half eaten, brown apple on the ground.", 2
         , 4, "Not that bad anyway! Added 4 health points");
     Item rabbitSkin = new MiscItems("Rabbit Skin", "\nThe skin of a rabbit, thorn from its body is laying on the ground", 3);
+    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20);
     room1.addItems(axe);
     room1.addItems(gold);
     room1.addItems(apple);
     room1.addItems(rabbitSkin);
+    room1.addEnemy(orc);
 
     //Room 2
     name = "SMALL PATH";

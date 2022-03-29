@@ -77,7 +77,7 @@ public class Player {
 
     for (Enemy enemy : currentRoom.getEnemiesRoom()) {
       if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
-        if (attackWhichEnemy instanceof Enemy) {
+        if (enemy instanceof Enemy) {
           System.out.println("you did damage");
           return;
         }
@@ -88,7 +88,7 @@ public class Player {
 
   public void look() {
     System.out.println("\n" + currentRoom);
-    //System.out.println("\n" + currentRoom + currentRoom.getItemsDescription());
+    System.out.println("\n" + currentRoom.getEnemyDescription());
   }
 
   public void search() {

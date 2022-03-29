@@ -69,6 +69,10 @@ public class Room {
     itemsRoom.add(item);
   }
 
+  void addEnemy(Enemy enemy) {
+    enemiesRoom.add(enemy);
+  }
+
   void removeItems(Item item) {
     itemsRoom.remove(item);
   }
@@ -76,7 +80,15 @@ public class Room {
   String getItemsDescription() {
     String s = "";
     for (int i = 0; i < itemsRoom.size(); i++) {
-      s = s + itemsRoom.get(i).getDescription() + "[" + itemsRoom.get(i).getName() + "]";
+      s = s + itemsRoom.get(i).getDescription() + " [" + itemsRoom.get(i).getName() + "]";
+    }
+    return s;
+  }
+
+  String getEnemyDescription() {
+    String s = "";
+    for (int i = 0; i < enemiesRoom.size(); i++) {
+      s = s + enemiesRoom.get(i).getDescription() + " [" + enemiesRoom.get(i).getName() + "]";
     }
     return s;
   }

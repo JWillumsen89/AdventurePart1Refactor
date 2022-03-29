@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Enemy {
 
   private String name;
@@ -21,4 +23,5 @@ public class Enemy {
   public void setHealthPointsEnemy(int healthPointsEnemy){
     this.healthPointsEnemy = healthPointsEnemy;
   }
+
 }
