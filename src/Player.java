@@ -10,7 +10,6 @@ public class Player {
   private String newLoc = "\nYou walked into a new location!";
   private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
-  private String attackDecision;
   private int goldAmount = 0;
   private int healthAmount = 100;
   private int playerAttackDamage = 0;
@@ -76,7 +75,7 @@ public class Player {
       return;
     }
 
-    for (Enemy enemy : currentRoom.getEnemyRoom()) {
+    for (Enemy enemy : currentRoom.getEnemiesRoom()) {
       if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
         if (attackWhichEnemy instanceof Enemy) {
           System.out.println("Added gold to your stash");
@@ -107,7 +106,7 @@ public class Player {
     return playerAnswer;
   }
 
-  public String InventoryAnswer(String message) {
+  public String answer(String message) {
     System.out.print("\n" + message);
     playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     return playerAnswer;
@@ -298,27 +297,4 @@ public class Player {
       System.out.println("\nGOLD STASH: " + goldAmount);
     }
   }
-
-  public void attack(Player player, String enemyName){
-    if (enemyName == null) {
-      System.out.println("You didnt pick anything");
-      return;
-    }
-
-    for (Enemy enemy : currentRoom.getEnemiesRoom()) {
-      if (enemy.getName().equalsIgnoreCase(enemyName)) {
-        if (enemy) {
-          stashGoldPlayer((Gold) item);
-          System.out.println("Added gold to your stash");
-          System.out.println("You have: " + goldAmount + " pieces");
-          return;
-        } else {
-          player.addItemPlayer(item);
-          System.out.println("Added " + itemName + " to inventory");
-          return;
-        }
-      }
-
-  }
-
 }
