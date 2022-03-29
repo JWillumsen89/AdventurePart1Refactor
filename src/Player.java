@@ -12,7 +12,7 @@ public class Player {
   private String playerAnswer;
   private int goldAmount = 0;
   private int healthAmount = 100;
-  private int playerAttackDamage = 0;
+  private int playerAttackDamage = 10;
   private boolean playerAlive = true;
   private Weapon equippedWeapon = null;
   private ArrayList<Item> inventory = new ArrayList<>();
@@ -78,7 +78,9 @@ public class Player {
     for (Enemy enemy : currentRoom.getEnemiesRoom()) {
       if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
         if (enemy instanceof Enemy) {
-          System.out.println("you did damage");
+          enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
+          System.out.println("you did damage: " + playerAttackDamage);
+          System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
           return;
         }
       }

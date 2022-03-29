@@ -11,17 +11,35 @@ public class Enemy {
     this.description = description;
     this.healthPointsEnemy = healthPointsEnemy;
   }
+
   public String getName(){
     return name;
   }
+
   public String getDescription(){
     return description;
   }
+
   public int getHealthPointsEnemy(){
     return healthPointsEnemy;
   }
+
   public void setHealthPointsEnemy(int healthPointsEnemy){
     this.healthPointsEnemy = healthPointsEnemy;
+  }
+
+  public  void decreseHealth(int healthPoints){
+    healthPointsEnemy -= healthPoints;
+
+
+
+  }
+
+  public void isDead (){
+    if (healthPointsEnemy <= 0){
+
+
+    }
   }
 
 }
