@@ -10,10 +10,11 @@ public class Player {
   private String newLoc = "\nYou walked into a new location!";
   private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
-  private Weapon equippedWeapon = null;
   private int goldAmount = 0;
   private int healthAmount = 100;
+  private int playerAttackDamage = 0;
   private boolean playerAlive = true;
+  private Weapon equippedWeapon = null;
   private ArrayList<Item> inventory = new ArrayList<>();
   private Scanner in = new Scanner(System.in);
 
@@ -21,28 +22,32 @@ public class Player {
     return this.playerAlive;
   }
 
-  void setCurrentRoom(Room currentRoom) {
+  public ArrayList<Item> getInventory() {
+    return inventory;
+  }
+
+  public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
   }
 
-  String getPlayerDecision() {
+  public String getPlayerDecision() {
     return playerDecision;
   }
 
-  void playerDecisions() {
+  public void playerDecisions() {
     System.out.print("\n" + playerName + ", what do you want to do: ");
     playerDecision = in.nextLine();
     playerDecision = playerDecision.toLowerCase();
   }
 
-  void playerNameInput() {
+  public void playerNameInput() {
     System.out.print("Warrior! Whats your name: ");
     playerName = in.nextLine();
     playerName = playerName.toUpperCase();
     System.out.println("\nGrab your sword and lets go!!");
   }
 
-  void movement(Direction direction) {
+  public void movement(Direction direction) {
     Room weWantToGo = null;
 
     if (direction == Direction.NORTH)
@@ -62,16 +67,16 @@ public class Player {
     }
   }
 
-  void look() {
+  public void look() {
     System.out.println("\n" + currentRoom);
     //System.out.println("\n" + currentRoom + currentRoom.getItemsDescription());
   }
 
-  void search() {
+  public void search() {
     System.out.println(currentRoom.getItemsDescription());
   }
 
-  String answer(String message) {
+  public String answer(String message) {
     showInventoryList();
     if (inventory.size() != 0) {
       System.out.println("\n" + message);
@@ -82,13 +87,13 @@ public class Player {
     return playerAnswer;
   }
 
-  String takeAnswer(String message) {
+  public String takeAnswer(String message) {
     System.out.print("\n" + message);
     playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     return playerAnswer;
   }
 
-  void deadOrAlive() {
+  public void deadOrAlive() {
     if (healthAmount <= 0)
       playerAlive = false;
   }
@@ -137,25 +142,6 @@ public class Player {
     System.out.println("You can't drink that [" + itemName + "]");
   }
 
-  void health() {
-    System.out.println("\nYour health level(0-100): " + healthAmount);
-
-    if (healthAmount > 80)
-      System.out.println("You are in good condition right now! Lets kill some beasts");
-    else if (healthAmount > 60)
-      System.out.println("Starting to feel a bit hungry, start thinking about finding some food");
-    else if (healthAmount > 40)
-      System.out.println("You need to find food and not fight!");
-    else if (healthAmount > 0)
-      System.out.println("DANGER DANGER!! GET FOOD NOW!!");
-    else
-      System.out.println("YOU DIED!!");
-  }
-
-  public ArrayList<Item> getInventory() {
-    return inventory;
-  }
-
   public void take(Player player, String itemName) {
 
     if (itemName == null) {
@@ -166,11 +152,11 @@ public class Player {
     for (Item item : currentRoom.getItemsRoom()) {
       if (item.getName().equalsIgnoreCase(itemName)) {
         if (item instanceof Gold) {
-          stashGoldPlayer((Gold)item);
+          stashGoldPlayer((Gold) item);
           System.out.println("Added gold to your stash");
           System.out.println("You have: " + goldAmount + " pieces");
           return;
-        } else  {
+        } else {
           player.addItemPlayer(item);
           System.out.println("Added " + itemName + " to inventory");
           return;
@@ -185,15 +171,44 @@ public class Player {
       System.out.println("Lets move on!");
       return;
     }
-
     for (Item item : player.getInventory()) {
       if (item.getName().equalsIgnoreCase(itemName)) {
         player.removeItemPlayer(item);
         System.out.println("Removed " + itemName + " from your inventory");
+        if (item.equals(equippedWeapon))
+          playerAttackDamage = playerAttackDamage - equippedWeapon.getAttackPoints();
+        System.out.println("You have also un-equip your: " + itemName);
+        equippedWeapon = null;
         return;
       }
-      System.out.println("That's not something you can drop");
     }
+    System.out.println("That's not something you can drop");
+  }
+
+  public void equipWeapon(Player player, String itemName) {
+    if (itemName == null) {
+      System.out.println("Lets move on");
+      return;
+    }
+
+    for (Item item : player.inventory) {
+      if (item.getName().equalsIgnoreCase(itemName)) {
+        if (!(item instanceof Weapon)) {
+          System.out.println("You can't equip that.");
+        } else if (item instanceof Weapon && equippedWeapon == null) {
+          {
+            player.equipItemPlayer((Weapon) item);
+            System.out.println("You equipped [" + itemName + "]");
+          }
+        } else if (item instanceof Weapon && equippedWeapon != null) {
+          playerAttackDamage = playerAttackDamage - equippedWeapon.getAttackPoints();
+          player.equipItemPlayer((Weapon) item);
+          System.out.println("You have now equipped: " + itemName + " instead");
+          equippedWeapon = (Weapon) item;
+        }
+      }
+    }
+    System.out.println("You now deal: " + playerAttackDamage + " damage.");
   }
 
   public void stashGoldPlayer(Gold item) {
@@ -220,18 +235,48 @@ public class Player {
       healthAmount = 0;
   }
 
-  void showInventoryList() {
+  public void equipItemPlayer(Weapon item) {
+
+    equippedWeapon = item;
+    playerAttackDamage = playerAttackDamage + item.getAttackPoints();
+    //inventory.remove(item);
+    //equippedWeapon1.add(item);
+  }
+
+  public void health() {
+    System.out.println("\nYour health level(0-100): " + healthAmount);
+
+    if (healthAmount > 80)
+      System.out.println("You are in good condition right now! Lets kill some beasts");
+    else if (healthAmount > 60)
+      System.out.println("Starting to feel a bit hungry, start thinking about finding some food");
+    else if (healthAmount > 40)
+      System.out.println("You need to find food and not fight!");
+    else if (healthAmount > 0)
+      System.out.println("DANGER DANGER!! GET FOOD NOW!!");
+    else
+      System.out.println("YOU DIED!!");
+  }
+
+  public void showInventoryList() {
     if (inventory.size() == 0) {
       System.out.println("\nYour inventory is empty");
       System.out.println("\nGOLD STASH: " + goldAmount);
     } else {
       String s = "";
+      String equipS = "";
       for (Item item : inventory) {
-        s = s + item.getName() + "\n";
+        if (item == equippedWeapon)
+          equipS = equipS + item.getName() + "\n";
+        else
+          s = s + item.getName()+ "\n";
       }
-      System.out.println("\nINVENTORY: \n");
+      System.out.println("\nINVENTORY:");
       System.out.println(s);
-      System.out.println("GOLD STASH: " + goldAmount);
+      System.out.println("\nEQUIPPED ITEMS:");
+      System.out.println(equipS);
+      System.out.println("\nGOLD STASH: " + goldAmount);
     }
   }
+
 }
