@@ -78,7 +78,7 @@ public class Player {
     for (Enemy enemy : currentRoom.getEnemiesRoom()) {
       if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
         if (attackWhichEnemy instanceof Enemy) {
-          System.out.println("Added gold to your stash");
+          System.out.println("you did damage");
           return;
         }
       }
