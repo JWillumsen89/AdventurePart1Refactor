@@ -50,13 +50,13 @@ public class Game {
       case "go west", "west", "go w", "w" -> player.movement(Direction.WEST);
       case "go east", "east", "go e", "e" -> player.movement(Direction.EAST);
       case "looking", "look", "l" -> player.look();
-      case "searching", "search" -> player.search();
-      case "eat" -> player.eat(player, player.answer("What do want to eat: "));
-      case "drink" -> player.drink(player, player.answer("What do you want to drink: "));
-      case "health" -> player.health();
-      case "equip" -> player.equipWeapon(player, player.answer("What do you want to equip: "));
-      case "take item", "take", "t" -> player.take(player, player.takeAnswer("What do you want to take: "));
-      case "drop item", "drop", "d" -> player.drop(player, player.answer("What do you want to drop: "));
+      case "searching", "search", "se" -> player.search();
+      case "eat" -> player.eat(player, player.inventoryAnswer("What do want to eat: "));
+      case "drink", "d" -> player.drink(player, player.inventoryAnswer("What do you want to drink: "));
+      case "health", "hh" -> player.health();
+      case "equip", "ep" -> player.equipWeapon(player, player.inventoryAnswer("What do you want to equip: "));
+      case "take item", "take", "t" -> player.take(player, player.answer("What do you want to take: "));
+      case "drop item", "drop", "di" -> player.drop(player, player.inventoryAnswer("What do you want to drop: "));
       case "inventory", "i" -> player.showInventoryList();
       case "help me", "help", "h" -> ui.helpText();
       case "exit" -> {

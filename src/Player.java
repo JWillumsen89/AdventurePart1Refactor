@@ -76,7 +76,7 @@ public class Player {
     System.out.println(currentRoom.getItemsDescription());
   }
 
-  public String answer(String message) {
+  public String inventoryAnswer(String message) {
     showInventoryList();
     if (inventory.size() != 0) {
       System.out.println("\n" + message);
@@ -87,7 +87,7 @@ public class Player {
     return playerAnswer;
   }
 
-  public String takeAnswer(String message) {
+  public String answer(String message) {
     System.out.print("\n" + message);
     playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     return playerAnswer;
@@ -277,6 +277,28 @@ public class Player {
       System.out.println(equipS);
       System.out.println("\nGOLD STASH: " + goldAmount);
     }
+  }
+
+  public void attack(Player player, String enemyName){
+    if (enemyName == null) {
+      System.out.println("You didnt pick anything");
+      return;
+    }
+
+    for (Enemy enemy : currentRoom.getEnemiesRoom()) {
+      if (enemy.getName().equalsIgnoreCase(enemyName)) {
+        if (enemy) {
+          stashGoldPlayer((Gold) item);
+          System.out.println("Added gold to your stash");
+          System.out.println("You have: " + goldAmount + " pieces");
+          return;
+        } else {
+          player.addItemPlayer(item);
+          System.out.println("Added " + itemName + " to inventory");
+          return;
+        }
+      }
+
   }
 
 }

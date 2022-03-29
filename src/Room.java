@@ -9,6 +9,11 @@ public class Room {
   private Room east;
   private Room west;
   private ArrayList<Item> itemsRoom = new ArrayList<>();
+  private ArrayList<Enemy> enemiesRoom = new ArrayList<>();
+
+  ArrayList<Enemy> getEnemiesRoom(){
+    return enemiesRoom;
+  }
 
   ArrayList<Item> getItemsRoom() {
     return itemsRoom;
