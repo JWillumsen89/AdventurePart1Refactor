@@ -42,8 +42,7 @@ public class Enemy {
   }
 
   public void attack(){
-    if (player.getPlayerDecision().equals()){
+    //)if (player.getPlayerDecision().equals()){
 
     }
   }
-}

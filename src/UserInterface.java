@@ -46,20 +46,22 @@ public class UserInterface {
         
         Throughout the game you can write the following commands:
                 
-        go east   = Moves player towards east
-        go west   = Moves player towards west
-        go north  = Moves player towards north
-        go south  = Moves player towards south
-        look      = Looking around at the current location
-        search    = Searching for items.
-        eat       = Eat food items.
-        drink     = Drink liquid items.
-        health    = Shows your health status.
-        take      = Take items in the room
-        drop      = Drop items you have collected
-        inventory = Shows your inventory
-        help      = Opens help menu
-        exit      = Exit game
+        go east, east, go e, e    = Moves player towards east
+        go west, west, go w, w    = Moves player towards west
+        go north, north, go n, n  = Moves player towards north
+        go south, south, go s, s  = Moves player towards south
+        attack, a                 = Attack enemy/enemies
+        looking, look, l          = Looking around at the current location
+        searching, search, se     = Searching for items.
+        eat                       = Eat food items.
+        drink, d                  = Drink liquid items.
+        health, hh                = Shows your health status.
+        equip, ep                 = Equip weapon from inventory
+        take item, take, t        = Take items in the room
+        drop item, drop, di       = Drop items you have collected
+        inventory, i              = Shows your inventory
+        help me, help, h          = Opens help menu
+        exit                      = Exit game
                 
         """);
   }

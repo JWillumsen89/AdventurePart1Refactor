@@ -1,4 +1,4 @@
-public class Ammo extends Item {
+/*public class Ammo extends Item {
 
     private int ammo;
 
@@ -17,3 +17,5 @@ public class Ammo extends Item {
 
     }
 }
+
+ */
