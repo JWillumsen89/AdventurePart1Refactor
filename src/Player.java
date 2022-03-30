@@ -102,6 +102,7 @@ public class Player {
 
   public void look() {
     System.out.println("\n" + currentRoom);
+    if (currentRoom.getEnemiesRoom().size() > 0)
     System.out.println("\n" + currentRoom.getEnemyDescription());
   }
 
