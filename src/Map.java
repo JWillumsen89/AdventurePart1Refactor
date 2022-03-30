@@ -186,22 +186,30 @@ public class Map {
     //r2
     r2.addItems(sword);
     r2.addItems(poison);
+    r2.addEnemy(rat);
     //r3
     r3.addItems(shield);
     r3.addItems(leatherPouch);
+    r3.addEnemy(goblin);
     //r4
     r4.addItems(spear);
     r4.addItems(stones);
+    r4.addEnemy(wolf);
     //r5
     r5.addItems(excalibur);
+    r5.addEnemy(dragon);
     //r6
     r6.addItems(morningstar);
+    r6.addEnemy(slime);
     //r7
     r7.addItems(dagger);
+    r7.addEnemy(spider);
     //r8
     r8.addItems(armor);
     r8.addItems(goldPotion);
+    r8.addEnemy(drake);
     //r9
     r9.addItems(hammer);
+    r9.addEnemy(lion);
   }
 }

@@ -105,6 +105,9 @@ public class Player {
   }
 
   public void search() {
+    if (currentRoom.getEnemiesRoom().size() > 0)
+      System.out.println("You can't search room before you have killed enemy.");
+    else if (currentRoom.getEnemiesRoom().size() == 0)
     System.out.println(currentRoom.getItemsDescription());
   }
 
