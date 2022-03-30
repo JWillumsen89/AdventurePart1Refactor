@@ -140,41 +140,41 @@ public class Map {
     Item apple = new Food("Apple", "\nThere is a half eaten, brown apple on the ground.", 2
         , 4, "Not that bad anyway! Added 4 health points");
     Item rabbitSkin = new MiscItems("Rabbit Skin", "\nThe skin of a rabbit, thorn from its body is laying on the ground", 3);
-    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20);
+    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20,10);
     //r2
     Item sword = new MeleeWeapon("Sword", "\nThere is a sword here", 18, 9);
     Item poison = new Liquid("Blue Potion", "\nThere is a little flask, containing some blue liquid", 1, -50
         , "POISON!! Your stomach starts to cramp and you pass out for a few seconds. Your health points decreased by 50 points");
-    Enemy rat = new Enemy("Rat", "A big smelly orc is standing and looking right at you", 20);
+    Enemy rat = new Enemy("Rat", "A big smelly orc is standing and looking right at you", 20,10);
     //r3
     Item shield = new Armor("Shield", "\nThere is a shield here", 17, 10);
     Item leatherPouch = new Gold("Leather pouch", "\nThere is brown little leather, looks like it is containing something"
         , 4, 100);
-    Enemy goblin = new Enemy("Goblin", "A big smelly orc is standing and looking right at you", 20);
+    Enemy goblin = new Enemy("Goblin", "A big smelly orc is standing and looking right at you", 20,10);
     //r4
     Item spear = new MeleeWeapon("Spear", "\nThere is a spear here", 21, 13);
     Item stones = new RangedWeapon("Stones", "\nA small pile of stones are on the ground, they might be good for throwing", 7
         , 3, 6);
-    Enemy wolf = new Enemy("Wolf", "A big smelly orc is standing and looking right at you", 20);
+    Enemy wolf = new Enemy("Wolf", "A big smelly orc is standing and looking right at you", 20,10);
     //r5
     Item excalibur = new MeleeWeapon("Excalibur", "\nHere lies the legendary Excalibur", 30
         , 25);
-    Enemy dragon = new Enemy("Dragon", "A big smelly orc is standing and looking right at you", 20);
+    Enemy dragon = new Enemy("Dragon", "A big smelly orc is standing and looking right at you", 20,10);
     //r6
     Item morningstar = new MeleeWeapon("Morningstar", "\nThere is a morningstar here", 25, 12);
-    Enemy slime = new Enemy("Slime", "A big smelly orc is standing and looking right at you", 20);
+    Enemy slime = new Enemy("Slime", "A big smelly orc is standing and looking right at you", 20,10);
     //r7
     Item dagger = new MeleeWeapon("Dagger", "\nThere is a dagger here", 10, 7);
-    Enemy spider = new Enemy("Spider", "A big smelly orc is standing and looking right at you", 20);
+    Enemy spider = new Enemy("Spider", "A big smelly orc is standing and looking right at you", 20,10);
     //r8
     Item armor = new Armor("Armor", "\nThere is a suit of armor here", 12, 10);
     Item goldPotion = new Liquid("Gold Potion", "\nA small shine form the corner of the room catches your eyes," +
         " its a small bottle with shiny, golden liquid in it", 1, 60
         , "A sudden heat goes through your body, you feel stronger and ready for battle! 60 health points are added! ");
-    Enemy drake = new Enemy("Drake", "A big smelly orc is standing and looking right at you", 20);
+    Enemy drake = new Enemy("Drake", "A big smelly orc is standing and looking right at you", 20,10);
     //r9
     Item hammer = new MeleeWeapon("Hammer", "\nThere is a hammer here", 20, 12);
-    Enemy lion = new Enemy("Lion", "A big smelly orc is standing and looking right at you", 20);
+    Enemy lion = new Enemy("Lion", "A big smelly orc is standing and looking right at you", 20,10);
 
   public void addItems() {
     //r1
