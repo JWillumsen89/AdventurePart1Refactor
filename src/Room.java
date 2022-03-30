@@ -88,7 +88,7 @@ public class Room {
   String getEnemyDescription() {
     String s = "";
     for (int i = 0; i < enemiesRoom.size(); i++) {
-      s = s + enemiesRoom.get(i).getDescription() + " [" + enemiesRoom.get(i).getName() + "]";
+      s = s + enemiesRoom.get(i).getDescription() + " [" + enemiesRoom.get(i).getName() + " HEALTH: " + enemiesRoom.get(i).getHealthPointsEnemy() + "]";
     }
     return s;
   }
