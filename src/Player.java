@@ -88,7 +88,7 @@ public class Player {
               currentRoom.getEnemiesRoom().remove(enemy);
               System.out.println("Enemy is dead.");
             } else
-            System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+              System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
             return;
           }
           System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
@@ -105,9 +105,9 @@ public class Player {
 
   public void search() {
     if (currentRoom.getEnemiesRoom().size() > 0)
-      System.out.println("\nYou can't search room before you have killed enemy.");
-    else if (currentRoom.getEnemiesRoom().size() == 0)
-    System.out.println(currentRoom.getItemsDescription());
+      System.out.println("\nYou can't search room before you have killed the enemies.");
+    else
+      System.out.println(currentRoom.getItemsDescription());
   }
 
   public String inventoryAnswer(String message) {
@@ -176,28 +176,34 @@ public class Player {
     System.out.println("You can't drink that [" + itemName + "]");
   }
 
-  public void take(Player player, String itemName) {
+  public void take(Player player) {
 
-    if (itemName == null) {
-      System.out.println("You didnt pick anything");
-      return;
-    }
+    if (currentRoom.getEnemiesRoom().size() > 0)
+      System.out.println("\nYou can't take anything for the room, before you have killed the enemies.");
+    else {
+      System.out.print("What do you want to take: ");
+      String itemName = in.nextLine();
+      if (itemName == null) {
+        System.out.println("You didnt pick anything");
+        return;
+      }
 
-    for (Item item : currentRoom.getItemsRoom()) {
-      if (item.getName().equalsIgnoreCase(itemName)) {
-        if (item instanceof Gold) {
-          stashGoldPlayer((Gold) item);
-          System.out.println("Added " + ((Gold) item).getGoldPoints() + " gold pieces to your stash");
-          System.out.println("You have: " + goldAmount + " pieces");
-          return;
-        } else {
-          player.addItemPlayer(item);
-          System.out.println("Added " + itemName + " to inventory");
-          return;
+      for (Item item : currentRoom.getItemsRoom()) {
+        if (item.getName().equalsIgnoreCase(itemName)) {
+          if (item instanceof Gold) {
+            stashGoldPlayer((Gold) item);
+            System.out.println("Added " + ((Gold) item).getGoldPoints() + " gold pieces to your stash");
+            System.out.println("You have: " + goldAmount + " pieces");
+            return;
+          } else {
+            player.addItemPlayer(item);
+            System.out.println("Added " + itemName + " to inventory");
+            return;
+          }
         }
       }
+      System.out.println("Sorry but there isn´t an item named" + itemName + " in the room");
     }
-    System.out.println("Sorry but there isn´t an item named" + itemName + " in the room");
   }
 
   public void drop(Player player, String itemName) {

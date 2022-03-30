@@ -57,7 +57,7 @@ public class Game {
       case "drink", "d" -> player.drink(player, player.inventoryAnswer("What do you want to drink: "));
       case "health", "hh" -> player.health();
       case "equip", "ep" -> player.equipWeapon(player, player.inventoryAnswer("What do you want to equip: "));
-      case "take item", "take", "t" -> player.take(player, player.answer("What do you want to take: "));
+      case "take item", "take", "t" -> player.take(player);
       case "drop item", "drop", "di" -> player.drop(player, player.inventoryAnswer("What do you want to drop: "));
       case "inventory", "i" -> player.showInventoryList();
       case "help me", "help", "h" -> ui.helpText();
