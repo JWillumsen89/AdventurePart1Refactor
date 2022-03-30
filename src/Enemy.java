@@ -6,7 +6,7 @@ public class Enemy {
   private String description;
   private int healthPointsEnemy;
   private boolean enemyAlive = true;
-  private int enemyAttackDamage = 10;
+
 
   Enemy() {}
 
