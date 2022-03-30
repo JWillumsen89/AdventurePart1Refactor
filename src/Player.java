@@ -15,7 +15,7 @@ public class Player {
   private int healthAmount = 100;
   private int playerAttackDamage = 9;
   private boolean playerAlive = true;
-  private Weapon equippedWeapon = null;
+  Weapon equippedWeapon;
   private ArrayList<Item> inventory = new ArrayList<>();
   private Scanner in = new Scanner(System.in);
 
@@ -73,7 +73,7 @@ public class Player {
     if (currentRoom.getEnemiesRoom().size() == 0)
       System.out.println("There is nothing to attack here.");
 
-    else  {
+    else {
       System.out.println("What do you want to attack: ");
       attackWhichEnemy = in.nextLine();
 
