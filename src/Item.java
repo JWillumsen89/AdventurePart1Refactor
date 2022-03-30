@@ -10,6 +10,9 @@ public abstract class Item {
     this.weight = weight;
   }
 
+  public Item(String name) {
+  }
+
   public String getName() {
     return name;
   }

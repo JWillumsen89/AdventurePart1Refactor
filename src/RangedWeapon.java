@@ -17,19 +17,20 @@ public class RangedWeapon extends Weapon {
       return 0;
     }
   }
-}
 
-  /*
+
+
   public int getAmmunition(){
     return ammunition;
   }
 
 
-   */
- /* public void setAmmunition(Ammo ammo){
+
+  public void setAmmunition(Ammo ammo){
     this.ammunition += ammo.getAmmo();
   }
 }
 
-  */
+
+
 
