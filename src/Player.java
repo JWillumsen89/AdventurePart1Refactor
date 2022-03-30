@@ -82,11 +82,14 @@ public class Player {
           enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
 
           System.out.println("you did: " + playerAttackDamage + " damage");
+          if (enemy.getHealthPointsEnemy() <= 0) {
+            enemy.isDead();
+            currentRoom.getEnemiesRoom().remove(enemy);
+          }
           System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
-          return;
-        }
 
-        else if (enemy.getHealthPointsEnemy() == 0)
+          return;
+        } else if (enemy.getHealthPointsEnemy() == 0)
           enemy.isDead();
 
         currentRoom.getEnemiesRoom().remove(enemy);
@@ -183,7 +186,7 @@ public class Player {
       if (item.getName().equalsIgnoreCase(itemName)) {
         if (item instanceof Gold) {
           stashGoldPlayer((Gold) item);
-          System.out.println("Added gold to your stash");
+          System.out.println("Added " + ((Gold) item).getGoldPoints() + " gold pieces to your stash");
           System.out.println("You have: " + goldAmount + " pieces");
           return;
         } else {

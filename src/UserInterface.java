@@ -43,7 +43,7 @@ public class UserInterface {
 
   void helpText() {
     System.out.println("""
-                
+        
         Throughout the game you can write the following commands:
                 
         go east   = Moves player towards east

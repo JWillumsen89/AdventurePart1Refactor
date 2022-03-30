@@ -7,6 +7,8 @@ public class Enemy {
   private int healthPointsEnemy;
   private boolean enemyAlive = true;
 
+  Enemy() {}
+
   Enemy(String name, String description, int healthPointsEnemy) {
     this.name = name;
     this.description = description;
@@ -31,6 +33,8 @@ public class Enemy {
 
   public  void decreseHealth(int healthPoints){
     healthPointsEnemy -= healthPoints;
+
+
 
   }
 

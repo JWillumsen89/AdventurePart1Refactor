@@ -79,11 +79,11 @@ public class Room {
 
   String getItemsDescription() {
     String s = "";
-    for (int i = 0; i < itemsRoom.size(); i++) {
-      s = s + itemsRoom.get(i).getDescription() + " [" + itemsRoom.get(i).getName() + "]";
+      for (int i = 0; i < itemsRoom.size(); i++) {
+        s = s + itemsRoom.get(i).getDescription() + " [" + itemsRoom.get(i).getName() + "]";
+      }
+      return s;
     }
-    return s;
-  }
 
   String getEnemyDescription() {
     String s = "";

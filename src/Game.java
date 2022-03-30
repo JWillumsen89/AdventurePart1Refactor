@@ -5,6 +5,7 @@ public class Game {
   UserInterface ui = new UserInterface();
   Map map = new Map();
   Player player = new Player();
+  Enemy enemy = new Enemy();
 
   void run() {
     map.createRooms();

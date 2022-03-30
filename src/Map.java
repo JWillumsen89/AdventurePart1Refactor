@@ -2,6 +2,7 @@
 public class Map {
 
   private Room startRoom;
+  private Room r1, r2, r3, r4, r5, r6, r7, r8, r9;
   private String name;
   private String description;
 
@@ -16,18 +17,7 @@ public class Map {
         You have entered a dark cage with water dripping from the ceiling, shiny eyes in the distance from, what seems like hundreds of small animals, bats maybe!
         There is also some noise, a distant growling and something that sounds like footsteps, but hard to tell what this is and where its coming from.
         """;
-    Room room1 = new Room(name, description);
-    Item axe = new MeleeWeapon("Axe", "\nThere is an axe here.", 20, 10);
-    Item gold = new Gold("Gold", "\nSome small shiny pieces of gold are laying in the corner.", 0, 55);
-    Item apple = new Food("Apple", "\nThere is a half eaten, brown apple on the ground.", 2
-        , 4, "Not that bad anyway! Added 4 health points");
-    Item rabbitSkin = new MiscItems("Rabbit Skin", "\nThe skin of a rabbit, thorn from its body is laying on the ground", 3);
-    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20);
-    room1.addItems(axe);
-    room1.addItems(gold);
-    room1.addItems(apple);
-    room1.addItems(rabbitSkin);
-    room1.addEnemy(orc);
+    r1 = new Room(name, description);
 
     //Room 2
     name = "SMALL PATH";
@@ -36,12 +26,7 @@ public class Map {
         You are also stepping in something that seems to be sticking to you boots. Mud, blood or something else disgusting.
         Goosebumps suddenly wanders all over your buddy, a scream erupts from something or someone in the far distance!
         """;
-    Room room2 = new Room(name, description);
-    Item sword = new MeleeWeapon("Sword", "\nThere is a sword here", 18, 9);
-    Item poison = new Liquid("Blue Potion", "\nThere is a little flask, containing some blue liquid", 1, -50
-        , "POISON!! Your stomach starts to cramp and you pass out for a few seconds. Your health points decreased by 50 points");
-    room2.addItems(sword);
-    room2.addItems(poison);
+    r2 = new Room(name, description);
 
     //Room 3
     name = "DUGOUT AREA";
@@ -51,12 +36,7 @@ public class Map {
         Theres a small oddly looking table, containing the rest of what seems to have been someones lunch and very small leather bag, someone left in a hurry!.
         After looking a round, the silence gets interrupted by the same distant growling you have been hearing earlier
         """;
-    Room room3 = new Room(name, description);
-    Item shield = new Armor("Shield", "\nThere is a shield here", 17, 10);
-    Item leatherPouch = new Gold("Leather pouch", "\nThere is brown little leather, looks like it is containing something"
-        , 4, 100);
-    room3.addItems(shield);
-    room3.addItems(leatherPouch);
+    r3 = new Room(name, description);
 
     //Room 4
     name = "SLOPE INTO THE DARK";
@@ -65,12 +45,7 @@ public class Map {
         Small ticking noise are coming from the scorpions crawling on the walls.
         There is a weird smell here, rot, death and something you cant describe
         """;
-    Room room4 = new Room(name, description);
-    Item spear = new MeleeWeapon("Spear", "\nThere is a spear here", 21, 13);
-    Item stones = new RangedWeapon("Stones", "\nA small pile of stones are on the ground, they might be good for throwing", 7
-        , 3, 6);
-    room4.addItems(spear);
-    room4.addItems(stones);
+    r4 = new Room(name, description);
 
     //Room 5
     name = "CEREMONIAL ROOM";
@@ -80,10 +55,7 @@ public class Map {
         It runs towards you and throws across the room.
         Back on your feet, you grab your weapon and prepare for a hard fight
         """;
-    Room room5 = new Room(name, description);
-    Item excalibur = new MeleeWeapon("Excalibur", "\nHere lies the legendary Excalibur", 30
-        , 25);
-    room5.addItems(excalibur);
+    r5 = new Room(name, description);
 
     //Room 6
     name = "WATERFALL";
@@ -92,9 +64,7 @@ public class Map {
         By the water there a very oddly skeleton, that thankfully is not alive. Because those pointer teeth and sharp claws, must have injured somebody badly.
         Thorn fabric and a dagger is beside it. Someone barely escaped this still alive.
         """;
-    Room room6 = new Room(name, description);
-    Item morningstar = new MeleeWeapon("Morningstar", "\nThere is a morningstar here", 25, 12);
-    room6.addItems(morningstar);
+    r6 = new Room(name, description);
 
     //Room 7
     name = "SKELETON ROOM";
@@ -103,9 +73,7 @@ public class Map {
         Bones are breaking because you cant take a step without stepping on them.
         Then!! Goosebumps hits you when you suddenly hear a roar from deeper within the cave.
         """;
-    Room room7 = new Room(name, description);
-    Item dagger = new MeleeWeapon("Dagger", "\nThere is a dagger here", 10, 7);
-    room7.addItems(dagger);
+    r7 = new Room(name, description);
 
     //Room 8
     name = "CAVE AND CAGES";
@@ -115,13 +83,7 @@ public class Map {
         But something is off, some of the monuments are smashed, claws marks, old blood marks and a weird quite atmosphere.
         In the corner is a big cage, broken, smashed actually! Something big was here!
         """;
-    Room room8 = new Room(name, description);
-    Item armor = new Armor("Armor", "\nThere is a suit of armor here", 12, 10);
-    Item goldPotion = new Liquid("Gold Potion", "\nA small shine form the corner of the room catches your eyes," +
-        " its a small bottle with shiny, golden liquid in it", 1, 60
-        , "A sudden heat goes through your body, you feel stronger and ready for battle! 60 health points are added! ");
-    room8.addItems(armor);
-    room8.addItems(goldPotion);
+    r8 = new Room(name, description);
 
     //Room 9
     name = "STAIRWAY";
@@ -129,46 +91,109 @@ public class Map {
         Man made creepy stairs!
         Very slippery and small.
         """;
-    Room room9 = new Room(name, description);
-    Item hammer = new MeleeWeapon("Hammer", "\nThere is a hammer here", 20, 12);
-    room9.addItems(hammer);
+    r9 = new Room(name, description);
 
     //room 1
-    room1.setEast(room2);
-    room1.setSouth(room4);
+    r1.setEast(r2);
+    r1.setSouth(r4);
 
     //room 2
-    room2.setWest(room1);
-    room2.setEast(room3);
+    r2.setWest(r1);
+    r2.setEast(r3);
 
     //room 3
-    room3.setWest(room2);
-    room3.setSouth(room6);
+    r3.setWest(r2);
+    r3.setSouth(r6);
 
     //room 4
-    room4.setNorth(room1);
-    room4.setSouth(room7);
+    r4.setNorth(r1);
+    r4.setSouth(r7);
 
     //room 5
-    room5.setSouth(room8);
+    r5.setSouth(r8);
 
     //room 6
-    room6.setNorth(room3);
-    room6.setSouth(room9);
+    r6.setNorth(r3);
+    r6.setSouth(r9);
 
     //room 7
-    room7.setNorth(room4);
-    room7.setEast(room8);
+    r7.setNorth(r4);
+    r7.setEast(r8);
 
     //room 8
-    room8.setWest(room7);
-    room8.setNorth(room5);
-    room8.setEast(room9);
+    r8.setWest(r7);
+    r8.setNorth(r5);
+    r8.setEast(r9);
 
     //room 9
-    room9.setWest(room8);
-    room9.setNorth(room6);
+    r9.setWest(r8);
+    r9.setNorth(r6);
 
-    startRoom = room1;
+    startRoom = r1;
+
+    addItems();
+  }
+
+    //r1
+    Item axe = new MeleeWeapon("Axe", "\nThere is an axe here.", 20, 10);
+    Item gold = new Gold("Gold", "\nSome small shiny pieces of gold are laying in the corner.", 0, 55);
+    Item apple = new Food("Apple", "\nThere is a half eaten, brown apple on the ground.", 2
+        , 4, "Not that bad anyway! Added 4 health points");
+    Item rabbitSkin = new MiscItems("Rabbit Skin", "\nThe skin of a rabbit, thorn from its body is laying on the ground", 3);
+    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20);
+    //r2
+    Item sword = new MeleeWeapon("Sword", "\nThere is a sword here", 18, 9);
+    Item poison = new Liquid("Blue Potion", "\nThere is a little flask, containing some blue liquid", 1, -50
+        , "POISON!! Your stomach starts to cramp and you pass out for a few seconds. Your health points decreased by 50 points");
+    //r3
+    Item shield = new Armor("Shield", "\nThere is a shield here", 17, 10);
+    Item leatherPouch = new Gold("Leather pouch", "\nThere is brown little leather, looks like it is containing something"
+        , 4, 100);
+    //r4
+    Item spear = new MeleeWeapon("Spear", "\nThere is a spear here", 21, 13);
+    Item stones = new RangedWeapon("Stones", "\nA small pile of stones are on the ground, they might be good for throwing", 7
+        , 3, 6);
+    //r5
+    Item excalibur = new MeleeWeapon("Excalibur", "\nHere lies the legendary Excalibur", 30
+        , 25);
+    //r6
+    Item morningstar = new MeleeWeapon("Morningstar", "\nThere is a morningstar here", 25, 12);
+    //r7
+    Item dagger = new MeleeWeapon("Dagger", "\nThere is a dagger here", 10, 7);
+    //r8
+    Item armor = new Armor("Armor", "\nThere is a suit of armor here", 12, 10);
+    Item goldPotion = new Liquid("Gold Potion", "\nA small shine form the corner of the room catches your eyes," +
+        " its a small bottle with shiny, golden liquid in it", 1, 60
+        , "A sudden heat goes through your body, you feel stronger and ready for battle! 60 health points are added! ");
+    //r9
+    Item hammer = new MeleeWeapon("Hammer", "\nThere is a hammer here", 20, 12);
+
+  public void addItems() {
+    //r1
+    r1.addItems(axe);
+    r1.addItems(gold);
+    r1.addItems(apple);
+    r1.addItems(rabbitSkin);
+    r1.addEnemy(orc);
+    //r2
+    r2.addItems(sword);
+    r2.addItems(poison);
+    //r3
+    r3.addItems(shield);
+    r3.addItems(leatherPouch);
+    //r4
+    r4.addItems(spear);
+    r4.addItems(stones);
+    //r5
+    r5.addItems(excalibur);
+    //r6
+    r6.addItems(morningstar);
+    //r7
+    r7.addItems(dagger);
+    //r8
+    r8.addItems(armor);
+    r8.addItems(goldPotion);
+    //r9
+    r9.addItems(hammer);
   }
 }
