@@ -72,9 +72,11 @@ public class Player {
 
     if (currentRoom.getEnemiesRoom().size() == 0)
       System.out.println("There is nothing to attack here.");
-    else if (currentRoom.getEnemiesRoom().size() > 0) {
+
+    else  {
       System.out.println("What do you want to attack: ");
       attackWhichEnemy = in.nextLine();
+
       if (attackWhichEnemy.equals("")) {
         System.out.println("You didnt type anything.");
         return;
@@ -91,8 +93,8 @@ public class Player {
               System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
             return;
           }
-          System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
         }
+        System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
       }
     }
   }
@@ -118,12 +120,6 @@ public class Player {
     } else {
       System.out.println("");
     }
-    return playerAnswer;
-  }
-
-  public String answer(String message) {
-    System.out.print("\n" + message);
-    playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     return playerAnswer;
   }
 
