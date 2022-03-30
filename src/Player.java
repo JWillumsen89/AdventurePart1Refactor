@@ -85,7 +85,6 @@ public class Player {
             enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
             System.out.println("You did: " + playerAttackDamage + " damage");
             if (enemy.getHealthPointsEnemy() <= 0) {
-              enemy.isDead();
               currentRoom.getEnemiesRoom().remove(enemy);
               System.out.println("Enemy is dead.");
             } else
@@ -106,7 +105,7 @@ public class Player {
 
   public void search() {
     if (currentRoom.getEnemiesRoom().size() > 0)
-      System.out.println("You can't search room before you have killed enemy.");
+      System.out.println("\nYou can't search room before you have killed enemy.");
     else if (currentRoom.getEnemiesRoom().size() == 0)
     System.out.println(currentRoom.getItemsDescription());
   }
