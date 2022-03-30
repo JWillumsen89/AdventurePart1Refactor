@@ -78,11 +78,20 @@ public class Player {
     for (Enemy enemy : currentRoom.getEnemiesRoom()) {
       if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
         if (enemy instanceof Enemy) {
+
           enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
-          System.out.println("you did damage: " + playerAttackDamage);
+
+          System.out.println("you did: " + playerAttackDamage + " damage");
           System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
           return;
         }
+
+        else if (enemy.getHealthPointsEnemy() == 0)
+          enemy.isDead();
+
+        currentRoom.getEnemiesRoom().remove(enemy);
+        System.out.println("Enemy is dead.");
+
       }
       System.out.println("Sorry but there isn´t an enemy named" + attackWhichEnemy + " in this room");
     }

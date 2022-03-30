@@ -5,6 +5,7 @@ public class Enemy {
   private String name;
   private String description;
   private int healthPointsEnemy;
+  private boolean enemyAlive = true;
 
   Enemy(String name, String description, int healthPointsEnemy) {
     this.name = name;
@@ -31,15 +32,19 @@ public class Enemy {
   public  void decreseHealth(int healthPoints){
     healthPointsEnemy -= healthPoints;
 
-
-
   }
 
   public void isDead (){
-    if (healthPointsEnemy <= 0){
-
-
+    enemyAlive = false;
     }
+
+  public boolean isEnemyAlive() {
+    return enemyAlive;
   }
 
+  public void setEnemyAlive(boolean enemyAlive) {
+    this.enemyAlive = enemyAlive;
+  }
 }
+
+
