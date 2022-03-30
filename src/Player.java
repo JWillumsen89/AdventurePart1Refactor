@@ -10,6 +10,7 @@ public class Player {
   private String newLoc = "\nYou walked into a new location!";
   private String cantGo = "\nyou can't go that way";
   private String playerAnswer;
+  private String attackWhichEnemy;
   private int goldAmount = 0;
   private int healthAmount = 100;
   private int playerAttackDamage = 10;
@@ -67,43 +68,48 @@ public class Player {
     }
   }
 
-  public void attack(Player player, String attackWhichEnemy) {
-    System.out.println("Test");
+  public void attack() {
 
-    if (attackWhichEnemy == null) {
-      System.out.println("You didnt type anything that's possible to attack.");
-      return;
-    }
-
-    for (Enemy enemy : currentRoom.getEnemiesRoom()) {
-      if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
-        if (enemy instanceof Enemy) {
-
-          enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
-
-          System.out.println("you did: " + playerAttackDamage + " damage");
-          if (enemy.getHealthPointsEnemy() <= 0) {
-            enemy.isDead();
-            currentRoom.getEnemiesRoom().remove(enemy);
-          }
-          System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
-
-          return;
-        } else if (enemy.getHealthPointsEnemy() == 0)
-          enemy.isDead();
-
-        currentRoom.getEnemiesRoom().remove(enemy);
-        System.out.println("Enemy is dead.");
-
+    if (currentRoom.getEnemiesRoom().size() == 0)
+      System.out.println("There is nothing to attack here.");
+    else if (currentRoom.getEnemiesRoom().size() > 0) {
+      System.out.println("What do you want to attack: ");
+      attackWhichEnemy = in.nextLine();
+      if (attackWhichEnemy == null) {
+        System.out.println("You didnt type anything that's possible to attack.");
+        return;
       }
-      System.out.println("Sorry but there isn´t an enemy named" + attackWhichEnemy + " in this room");
+
+      for (Enemy enemy : currentRoom.getEnemiesRoom()) {
+        if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
+          if (enemy instanceof Enemy) {
+
+            enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
+
+            System.out.println("you did: " + playerAttackDamage + " damage");
+            if (enemy.getHealthPointsEnemy() <= 0) {
+              enemy.isDead();
+              currentRoom.getEnemiesRoom().remove(enemy);
+            }
+            System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+
+            return;
+          } else if (enemy.getHealthPointsEnemy() == 0)
+            enemy.isDead();
+
+          currentRoom.getEnemiesRoom().remove(enemy);
+          System.out.println("Enemy is dead.");
+
+        }
+        System.out.println("Sorry but there isn´t an enemy named" + attackWhichEnemy + " in this room");
+      }
     }
   }
 
   public void look() {
     System.out.println("\n" + currentRoom);
     if (currentRoom.getEnemiesRoom().size() > 0)
-    System.out.println("\n" + currentRoom.getEnemyDescription());
+      System.out.println("\n" + currentRoom.getEnemyDescription());
   }
 
   public void search() {
