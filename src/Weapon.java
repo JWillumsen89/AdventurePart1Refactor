@@ -4,7 +4,7 @@ public abstract class Weapon extends Item {
 
   Weapon(String name, String description, int weight, int attackPoints) {
     super(name, description, weight);
-    this.setAttackPoints(attackPoints);
+    this.attackPoints = attackPoints;
   }
 
   public void setAttackPoints(int attackPoints) {

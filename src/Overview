@@ -1,17 +1,5 @@
 Adventure - main
 
-Game - run, mainMenu and playerDecisions
-
-Item - item, getName and setName, getDescription and setDescription
-
-Map - getStartRoom and createRooms
-
-Player - setCurrentRoom and getCurrentRoom, getPlayerName, playerNameInput, movement and addItem
-
-Room - Room, setRoomName, setRoomDescription, setNorth, getNorth, setSouth, getSouth, setEast, getEast, setWest, getWest, addItems, getItems, removeItems, removeItem and toString
-
-UserInterface - gameStartUp, getCommand, printMain, helpText, exit and invalidAnswer
-
 Armor - Armor
 
 Consumables - Consumables, setHealthPoints, getHealthPoints and getGoodOrBad
@@ -22,15 +10,46 @@ Enemy - Enemy, getName, getDescription, getHealthPointsEnemy, setHealthPointsEne
 
 Food - Food
 
+Game - run, mainMenu and playerDecisionsSwitch
+
 Gold - Gold, setGoldPoints and getGoldPoints
 
-Item(abstract) - Item, getName, getDescription and toString
+Item - item, getName and setName, getDescription and setDescription
 
 Liquid - Liquid
+
+Map - getStartRoom and createRooms
 
 MeleeWeapon - MeleeWeapon
 
 MiscItems - MiscItems
+
+Player - isPlayerAlive, getInventory, setCurrentRoom and getCurrentRoom, getPlayerDecision, playerDecisions, playerNameInput, movement, attack, look ,search, inventoryAnswer,
+
+deadOrAlive, eat, drink, take, drop, equipWeapon, stashGoldPlayer, addItemPlayer, removeItemPlayer, consumeItemPlayer, equipItemPlayer, health, showInventoryList
+
+
+Room - Room, setRoomName, setRoomDescription, setNorth, getNorth, setSouth, getSouth, setEast, getEast, setWest, getWest, addItems, getItems, removeItems, removeItem and toString
+
+UserInterface - gameStartUp, getCommand, printMain, helpText, exit and invalidAnswer
+
+
+
+
+
+
+
+
+
+
+
+Item(abstract) - Item, getName, getDescription and toString
+
+
+
+
+
+
 
 RangedWeapon - RandWeapon
 

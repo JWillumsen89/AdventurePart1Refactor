@@ -6,6 +6,7 @@ public class Enemy {
   private String description;
   private int healthPointsEnemy;
   private int enemyAttack;
+  Player player = new Player();
 
   Enemy() {}
 
@@ -30,5 +31,19 @@ public class Enemy {
 
   public void setHealthPointsEnemy(int healthPointsEnemy){
     this.healthPointsEnemy = healthPointsEnemy;
+  }
+
+  public void setEnemyAttack(int enemyAttack){
+    this.enemyAttack = enemyAttack;
+  }
+
+  public int getEnemyAttack(){
+    return enemyAttack;
+  }
+
+  public void attack(){
+    if (player.getPlayerDecision().equals()){
+
+    }
   }
 }

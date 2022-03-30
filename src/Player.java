@@ -84,6 +84,7 @@ public class Player {
       for (Enemy enemy : currentRoom.getEnemiesRoom()) {
         if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
           if (enemy instanceof Enemy) {
+            if (equippedWeapon instanceof RangedWeapon)
             enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
             System.out.println("You did: " + playerAttackDamage + " damage");
             if (enemy.getHealthPointsEnemy() <= 0) {
