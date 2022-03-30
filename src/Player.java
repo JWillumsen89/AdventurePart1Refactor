@@ -272,11 +272,8 @@ public class Player {
   }
 
   public void equipItemPlayer(Weapon item) {
-
     equippedWeapon = item;
     playerAttackDamage = playerAttackDamage + item.getAttackPoints();
-    //inventory.remove(item);
-    //equippedWeapon1.add(item);
   }
 
   public void health() {
