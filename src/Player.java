@@ -13,7 +13,7 @@ public class Player {
   private String attackWhichEnemy;
   private int goldAmount = 0;
   private int healthAmount = 100;
-  private int playerAttackDamage = 10;
+  private int playerAttackDamage = 9;
   private boolean playerAlive = true;
   private Weapon equippedWeapon = null;
   private ArrayList<Item> inventory = new ArrayList<>();

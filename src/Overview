@@ -1,4 +1,4 @@
-Adventure - has main
+Adventure - main
 
 Game - run, mainMenu and playerDecisions
 
@@ -11,3 +11,34 @@ Player - setCurrentRoom and getCurrentRoom, getPlayerName, playerNameInput, move
 Room - Room, setRoomName, setRoomDescription, setNorth, getNorth, setSouth, getSouth, setEast, getEast, setWest, getWest, addItems, getItems, removeItems, removeItem and toString
 
 UserInterface - gameStartUp, getCommand, printMain, helpText, exit and invalidAnswer
+
+Armor - Armor
+
+Consumables - Consumables, setHealthPoints, getHealthPoints and getGoodOrBad
+
+Direction enum - NORTH, SOUTH, EAST and WEST
+
+Enemy - Enemy, getName, getDescription, getHealthPointsEnemy, setHealthPointsEnemy, isDead
+
+Food - Food
+
+Gold - Gold, setGoldPoints and getGoldPoints
+
+Item(abstract) - Item, getName, getDescription and toString
+
+Liquid - Liquid
+
+MeleeWeapon - MeleeWeapon
+
+MiscItems - MiscItems
+
+RangedWeapon - RandWeapon
+
+Weapon(abstract) - Weapon, setAttackPoints and get AttackPoints
+
+
+
+
+
+
+
