@@ -92,11 +92,9 @@ public class Player {
 
     if (currentRoom.getEnemiesRoom().size() == 0)
       System.out.println("There is nothing to attack here.");
-
     else {
       System.out.print("What do you want to attack: ");
       attackWhichEnemy = in.nextLine();
-
       if (attackWhichEnemy.equals("")) {
         System.out.println("You didnt type anything.");
         return;
@@ -108,33 +106,24 @@ public class Player {
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
               System.out.println("You did: " + playerAttackDamage + " damage");
 
-              if (enemy.getHealthPointsEnemy() <= 0) {
-                currentRoom.getEnemiesRoom().remove(enemy);
-                System.out.println("Enemy is dead.");
-                return;
-              } else {
-                System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
-                healthAmount = healthAmount - enemy.getEnemyAttack();
-                System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
-
-               something2();
-              }
+              enemyAttack();
+              playerHealthSituation();
             } else {
               equippedWeapon.attack();
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
               System.out.println("You did: " + playerAttackDamage + " damage");
 
-                something1();
-              }
+              enemyAttack();
+              playerHealthSituation();
             }
           }
         }
-        System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
       }
+      System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
     }
+  }
 
-
-  public void something1(){
+  public void enemyAttack() {
     if (enemy.getHealthPointsEnemy() <= 0) {
       currentRoom.getEnemiesRoom().remove(enemy);
       System.out.println("Enemy is dead.");
@@ -143,17 +132,10 @@ public class Player {
       System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
       healthAmount = healthAmount - enemy.getEnemyAttack();
       System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
-      if (healthAmount <= 0) {
-        System.out.println("You got killed!");
-        playerAlive = false;
-      } else {
-        System.out.println("Your current health level is now: " + healthAmount);
-        return;
-      }
     }
   }
 
-  public void something2(){
+  public void playerHealthSituation() {
     if (healthAmount <= 0) {
       System.out.println("You got killed!");
       playerAlive = false;
@@ -161,7 +143,6 @@ public class Player {
       System.out.println("Your current health level is now: " + healthAmount);
       return;
     }
-
   }
 
   public void look() {
