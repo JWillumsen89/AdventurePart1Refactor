@@ -31,9 +31,18 @@ public class Player {
     this.currentRoom = currentRoom;
   }
 
+  public void setHealthAmount(int healthAmount) {
+    this.healthAmount = healthAmount;
+  }
+
+  public int getHealthAmount() {
+    return healthAmount;
+  }
+
   public String getPlayerDecision() {
     return playerDecision;
   }
+
 
   public void playerDecisions() {
     System.out.print("\n" + playerName + ", what do you want to do: ");
@@ -66,6 +75,17 @@ public class Player {
     } else {
       System.out.println(cantGo);
     }
+  }
+
+  public String inventoryAnswer(String message) {
+    showInventoryList();
+    if (inventory.size() != 0) {
+      System.out.print("\n" + message);
+      playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
+    } else {
+      System.out.println("");
+    }
+    return playerAnswer;
   }
 
   public void attack() {
@@ -116,22 +136,6 @@ public class Player {
       System.out.println(currentRoom.getItemsDescription());
   }
 
-  public String inventoryAnswer(String message) {
-    showInventoryList();
-    if (inventory.size() != 0) {
-      System.out.print("\n" + message);
-      playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
-    } else {
-      System.out.println("");
-    }
-    return playerAnswer;
-  }
-
-  public void deadOrAlive() {
-    if (healthAmount <= 0)
-      playerAlive = false;
-  }
-
   public void eat(Player player, String itemName) {
 
     if (itemName == null) {
@@ -156,7 +160,7 @@ public class Player {
 
   public void drink(Player player, String itemName) {
 
-    if (itemName == null) {
+    if (itemName == null || inventory.size() == 0) {
       System.out.println("Lets move on");
       return;
     }
@@ -179,35 +183,40 @@ public class Player {
   public void take(Player player) {
 
     if (currentRoom.getEnemiesRoom().size() > 0)
-      System.out.println("\nYou can't take anything from the room, before you have killed the enemies.");
+      System.out.println("\nYou can't take anything from the room, before you have killed all enemies.");
     else {
-      System.out.print("What do you want to take: ");
-      String itemName = in.nextLine();
-      if (itemName == null) {
-        System.out.println("You didnt pick anything");
-        return;
-      }
+      if (currentRoom.getItemsRoom().size() == 0) {
+        System.out.println("There is nothing you can take");
+      } else {
+        System.out.print("What do you want to take: ");
+        String itemName = in.nextLine();
 
-      for (Item item : currentRoom.getItemsRoom()) {
-        if (item.getName().equalsIgnoreCase(itemName)) {
-          if (item instanceof Gold) {
-            stashGoldPlayer((Gold) item);
-            System.out.println("Added " + ((Gold) item).getGoldPoints() + " gold pieces to your stash");
-            System.out.println("You have: " + goldAmount + " pieces");
-            return;
-          } else {
-            player.addItemPlayer(item);
-            System.out.println("Added " + itemName + " to inventory");
-            return;
+        if (itemName == null) {
+          System.out.println("You didnt pick anything");
+          return;
+        }
+
+        for (Item item : currentRoom.getItemsRoom()) {
+          if (item.getName().equalsIgnoreCase(itemName)) {
+            if (item instanceof Gold) {
+              stashGoldPlayer((Gold) item);
+              System.out.println("Added " + ((Gold) item).getGoldPoints() + " gold pieces to your stash");
+              System.out.println("You have: " + goldAmount + " pieces");
+              return;
+            } else {
+              player.addItemPlayer(item);
+              System.out.println("Added " + itemName + " to inventory");
+              return;
+            }
           }
         }
+        System.out.println("Sorry but there isn´t an item named " + itemName + " in the room");
       }
-      System.out.println("Sorry but there isn´t an item named " + itemName + " in the room");
     }
   }
 
   public void drop(Player player, String itemName) {
-    if (inventory == null) {
+    if (itemName == null || inventory.size() == 0) {
       System.out.println("Lets move on!");
       return;
     }
@@ -249,7 +258,7 @@ public class Player {
           System.out.println("You now deal: " + playerAttackDamage + " damage.");
         }
       } else if (!item.getName().equalsIgnoreCase(itemName))
-      System.out.println("Sorry, but you dont have an item named " + itemName);
+        System.out.println("Sorry, but you dont have an item named " + itemName);
     }
   }
 
@@ -282,6 +291,11 @@ public class Player {
     playerAttackDamage = playerAttackDamage + item.getAttackPoints();
   }
 
+  public void deadOrAlive() {
+    if (healthAmount <= 0)
+      playerAlive = false;
+  }
+
   public void health() {
     System.out.println("\nYour health level(0-100): " + healthAmount);
 
@@ -295,14 +309,6 @@ public class Player {
       System.out.println("DANGER DANGER!! GET FOOD NOW!!");
     else
       System.out.println("YOU DIED!!");
-  }
-
-  public void setHealthAmount(int healthAmount) {
-    this.healthAmount = healthAmount;
-  }
-
-  public int getHealthAmount() {
-    return healthAmount;
   }
 
   public void showInventoryList() {
