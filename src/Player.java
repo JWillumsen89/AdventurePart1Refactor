@@ -115,15 +115,21 @@ public class Player {
                 healthAmount = healthAmount - enemy.getEnemyAttack();
                 System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
 
-                playerHealthSituation();
+                if (healthAmount <= 0) {
+                  System.out.println("You got killed!");
+                  playerAlive = false;
+                } else {
+                  System.out.println("Your current health level is now: " + healthAmount);
+                  return;
+                }
+                //playerHealthSituation(); // printer "sorry but there isn't ..." ud, efter man angriber
               }
             } else {
               equippedWeapon.attack();
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
-              System.out.println("You did: " + playerAttackDamage + " damage");
 
-              enemyAttack();
-              ;
+             enemyAttack();
+
             }
           }
         }
@@ -154,11 +160,11 @@ public class Player {
       playerAlive = false;
     } else {
       System.out.println("Your current health level is now: " + healthAmount);
-      return;
+
     }
   }
 
-  public void something3(){
+  public void something3(){ //TODO skal have et andet navn // virker ikke
     if (enemy.getHealthPointsEnemy() <= 0) {
       currentRoom.getEnemiesRoom().remove(enemy);
       System.out.println("Enemy is dead.");

@@ -24,14 +24,21 @@ MeleeWeapon - MeleeWeapon
 
 MiscItems - MiscItems
 
-Player - isPlayerAlive, getInventory, setCurrentRoom and getCurrentRoom, getPlayerDecision, playerDecisions, playerNameInput, movement, attack, look ,search, inventoryAnswer,
 
-deadOrAlive, eat, drink, take, drop, equipWeapon, stashGoldPlayer, addItemPlayer, removeItemPlayer, consumeItemPlayer, equipItemPlayer, health, showInventoryList
+Player - isPlayerAlive, getInventory, setCurrentRoom and getCurrentRoom, getPlayerDecision, playerDecisions,
+
+playerNameInput, movement, attack, look ,search, inventoryAnswer, deadOrAlive, eat, drink, take, drop, equipWeapon,
+
+stashGoldPlayer, addItemPlayer, removeItemPlayer, consumeItemPlayer, equipItemPlayer, health, showInventoryList
 
 
 RangedWeapon - RandWeapon
 
-Room - Room, setRoomName, setRoomDescription, setNorth, getNorth, setSouth, getSouth, setEast, getEast, setWest, getWest, addItems, getItems, removeItems, removeItem and toString
+
+Room - Room, setRoomName, setRoomDescription, setNorth, getNorth, setSouth, getSouth, setEast, getEast, setWest, getWest,
+
+addItems, getItems, removeItems, removeItem and toString
+
 
 UserInterface - gameStartUp, getCommand, printMain, helpText, exit and invalidAnswer
 
