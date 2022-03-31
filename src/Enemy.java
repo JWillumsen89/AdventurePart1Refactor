@@ -5,7 +5,7 @@ public class Enemy {
   private String name;
   private String description;
   private int healthPointsEnemy;
-  private int enemyAttack = 10;
+  private int enemyAttack;
   Player player = new Player();
 
   Enemy() {}

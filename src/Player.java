@@ -93,7 +93,8 @@ public class Player {
             } else
               System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
 
-            System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+
+            System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
             return;
           }
         }
