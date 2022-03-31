@@ -160,16 +160,18 @@ public class Player {
   }
 
   public void something3(){
-    if (enemy.getHealthPointsEnemy() <= 0) {
-      currentRoom.getEnemiesRoom().remove(enemy);
-      System.out.println("Enemy is dead.");
-      return;
-    } else {
-      System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
-      healthAmount = healthAmount - enemy.getEnemyAttack();
-      System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+    for (Enemy enemy : currentRoom.getEnemiesRoom()) {
+      if (enemy.getHealthPointsEnemy() <= 0) {
+        currentRoom.getEnemiesRoom().remove(enemy);
+        System.out.println("Enemy is dead.");
+        return;
+      } else {
+        System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+        healthAmount = healthAmount - enemy.getEnemyAttack();
+        System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
 
-      playerHealthSituation();
+        playerHealthSituation();
+      }
     }
   }
 
