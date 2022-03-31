@@ -115,6 +115,11 @@ public class Player {
 
               healthAmount = healthAmount - enemy.getEnemyAttack();
               System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+              if (healthAmount <= 0) {
+                System.out.println("You got killed!");
+                playerAlive = false;
+              } else
+                health();
               //System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
               return;
             }
