@@ -18,13 +18,9 @@ public class RangedWeapon extends Weapon {
     }
   }
 
-
-
   public int getAmmunition(){
     return ammunition;
   }
-
-
 
   public void setAmmunition(Ammo ammo){
     this.ammunition += ammo.getAmmo();

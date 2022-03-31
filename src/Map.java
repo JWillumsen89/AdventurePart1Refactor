@@ -140,7 +140,7 @@ public class Map {
     Item apple = new Food("Apple", "\nThere is a half eaten, brown apple on the ground.", 2
         , 4, "Not that bad anyway! Added 4 health points");
     Item rabbitSkin = new MiscItems("Rabbit Skin", "\nThe skin of a rabbit, thorn from its body is laying on the ground", 3);
-    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20,10);
+    Enemy orc = new Enemy("Orc", "A big smelly orc is standing and looking right at you", 20,15);
     //r2
     Item sword = new MeleeWeapon("Sword", "\nThere is a sword here", 18, 9);
     Item poison = new Liquid("Blue Potion", "\nThere is a little flask, containing some blue liquid", 1, -50
