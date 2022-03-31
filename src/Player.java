@@ -127,6 +127,7 @@ public class Player {
             } else {
               equippedWeapon.attack();
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
+              System.out.println("You did: " + playerAttackDamage + " damage");
 
              enemyAttack();
 
@@ -160,7 +161,7 @@ public class Player {
       playerAlive = false;
     } else {
       System.out.println("Your current health level is now: " + healthAmount);
-
+      return;
     }
   }
 
