@@ -106,7 +106,7 @@ public class Player {
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
               System.out.println("You did: " + playerAttackDamage + " damage");
 
-              if (enemy.getHealthPointsEnemy() <= 0) {
+              /*if (enemy.getHealthPointsEnemy() <= 0) {
                 currentRoom.getEnemiesRoom().remove(enemy);
                 System.out.println("Enemy is dead.");
                 return;
@@ -116,7 +116,8 @@ public class Player {
                 System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
 
                 playerHealthSituation();
-              }
+              }*/
+              something3();
             } else {
               equippedWeapon.attack();
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
