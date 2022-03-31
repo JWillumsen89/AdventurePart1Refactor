@@ -155,7 +155,7 @@ public class Player {
     }
   }
 
-  public void playerHealthSituation() {
+  public void playerHealthSituation() { // printer "sorry but there isn't ..." ud, efter man angriber
     if (healthAmount <= 0) {
       System.out.println("You got killed!");
       playerAlive = false;
@@ -175,7 +175,7 @@ public class Player {
       healthAmount = healthAmount - enemy.getEnemyAttack();
       System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
 
-      playerHealthSituation();
+      //playerHealthSituation();
     }
   }
 
