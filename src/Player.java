@@ -110,12 +110,14 @@ public class Player {
             if (enemy.getHealthPointsEnemy() <= 0) {
               currentRoom.getEnemiesRoom().remove(enemy);
               System.out.println("Enemy is dead.");
-            } else
+            } else {
               System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
 
-
-            //System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
-            return;
+              healthAmount = healthAmount - enemy.getEnemyAttack();
+              System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+              //System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
+              return;
+            }
           }
         }
         System.out.println("Sorry but there isn´t an enemy named " + attackWhichEnemy + " in this room");
