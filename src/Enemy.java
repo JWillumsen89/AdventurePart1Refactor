@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Enemy {
 
   private String name;
