@@ -107,14 +107,14 @@ public class Player {
               System.out.println("You did: " + playerAttackDamage + " damage");
 
               enemyAttack();
-              playerHealthSituation();
+
             } else {
               equippedWeapon.attack();
               enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
               System.out.println("You did: " + playerAttackDamage + " damage");
 
               enemyAttack();
-              playerHealthSituation();
+
             }
           }
         }
@@ -132,6 +132,10 @@ public class Player {
       System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
       healthAmount = healthAmount - enemy.getEnemyAttack();
       System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+      if (healthAmount <= 0) {
+        System.out.println("You got killed!");
+        playerAlive = false;
+      }
     }
   }
 
@@ -142,6 +146,20 @@ public class Player {
     } else {
       System.out.println("Your current health level is now: " + healthAmount);
       return;
+    }
+  }
+
+  public void something3(){
+    if (enemy.getHealthPointsEnemy() <= 0) {
+      currentRoom.getEnemiesRoom().remove(enemy);
+      System.out.println("Enemy is dead.");
+      return;
+    } else {
+      System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+      healthAmount = healthAmount - enemy.getEnemyAttack();
+      System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+
+      something2();
     }
   }
 
