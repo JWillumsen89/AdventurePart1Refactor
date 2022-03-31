@@ -110,7 +110,7 @@ public class Player {
 
   public void search() {
     if (currentRoom.getEnemiesRoom().size() > 0)
-      System.out.println("\nYou can't search room before you have killed the enemies.");
+      System.out.println("\nYou can't search the room before you have killed the enemies.");
     else
       System.out.println(currentRoom.getItemsDescription());
   }
@@ -178,7 +178,7 @@ public class Player {
   public void take(Player player) {
 
     if (currentRoom.getEnemiesRoom().size() > 0)
-      System.out.println("\nYou can't take anything for the room, before you have killed the enemies.");
+      System.out.println("\nYou can't take anything from the room, before you have killed the enemies.");
     else {
       System.out.print("What do you want to take: ");
       String itemName = in.nextLine();
