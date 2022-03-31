@@ -74,7 +74,7 @@ public class Player {
       System.out.println("There is nothing to attack here.");
 
     else {
-      System.out.println("What do you want to attack: ");
+      System.out.print("What do you want to attack: ");
       attackWhichEnemy = in.nextLine();
 
       if (attackWhichEnemy.equals("")) {
@@ -94,7 +94,7 @@ public class Player {
               System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
 
 
-            System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
+            //System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
             return;
           }
         }
@@ -119,7 +119,7 @@ public class Player {
   public String inventoryAnswer(String message) {
     showInventoryList();
     if (inventory.size() != 0) {
-      System.out.println("\n" + message);
+      System.out.print("\n" + message);
       playerAnswer = in.nextLine().toLowerCase(Locale.ROOT);
     } else {
       System.out.println("");
@@ -202,7 +202,7 @@ public class Player {
           }
         }
       }
-      System.out.println("Sorry but there isn´t an item named" + itemName + " in the room");
+      System.out.println("Sorry but there isn´t an item named " + itemName + " in the room");
     }
   }
 
@@ -239,16 +239,18 @@ public class Player {
           {
             player.equipItemPlayer((Weapon) item);
             System.out.println("You equipped [" + itemName + "]");
+            System.out.println("You now deal: " + playerAttackDamage + " damage.");
           }
         } else if (item instanceof Weapon && equippedWeapon != null) {
           playerAttackDamage = playerAttackDamage - equippedWeapon.getAttackPoints();
           player.equipItemPlayer((Weapon) item);
           System.out.println("You have now equipped: " + itemName + " instead");
           equippedWeapon = (Weapon) item;
+          System.out.println("You now deal: " + playerAttackDamage + " damage.");
         }
-      }
+      } else if (!item.getName().equalsIgnoreCase(itemName))
+      System.out.println("Sorry, but you dont have an item named " + itemName);
     }
-    System.out.println("You now deal: " + playerAttackDamage + " damage.");
   }
 
   public void stashGoldPlayer(Gold item) {
@@ -295,11 +297,11 @@ public class Player {
       System.out.println("YOU DIED!!");
   }
 
-  public void setHealthAmount(int healthAmount){
+  public void setHealthAmount(int healthAmount) {
     this.healthAmount = healthAmount;
   }
 
-  public int getHealthAmount(){
+  public int getHealthAmount() {
     return healthAmount;
   }
 
