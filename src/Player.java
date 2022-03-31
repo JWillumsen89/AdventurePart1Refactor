@@ -104,24 +104,45 @@ public class Player {
       for (Enemy enemy : currentRoom.getEnemiesRoom()) {
         if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
           if (enemy instanceof Enemy) {
-            //if (equippedWeapon instanceof RangedWeapon)
-            enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
-            System.out.println("You did: " + playerAttackDamage + " damage");
-            if (enemy.getHealthPointsEnemy() <= 0) {
-              currentRoom.getEnemiesRoom().remove(enemy);
-              System.out.println("Enemy is dead.");
+            if (equippedWeapon == null) {
+              enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
+              System.out.println("You did: " + playerAttackDamage + " damage");
+              if (enemy.getHealthPointsEnemy() <= 0) {
+                currentRoom.getEnemiesRoom().remove(enemy);
+                System.out.println("Enemy is dead.");
+                return;
+              } else {
+                System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+                healthAmount = healthAmount - enemy.getEnemyAttack();
+                System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+                if (healthAmount <= 0) {
+                  System.out.println("You got killed!");
+                  playerAlive = false;
+                } else {
+                  System.out.println("Your current health level is now: " + healthAmount);
+                  return;
+                }
+              }
             } else {
-              System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
-
-              healthAmount = healthAmount - enemy.getEnemyAttack();
-              System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
-              if (healthAmount <= 0) {
-                System.out.println("You got killed!");
-                playerAlive = false;
-              } else
-                health();
-              //System.out.println("Enemy did: " + currentRoom.getEnemiesRoom(enemy.E) + " damage");
-              return;
+              equippedWeapon.attack();
+              enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
+              System.out.println("You did: " + playerAttackDamage + " damage");
+              if (enemy.getHealthPointsEnemy() <= 0) {
+                currentRoom.getEnemiesRoom().remove(enemy);
+                System.out.println("Enemy is dead.");
+                return;
+              } else {
+                System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+                healthAmount = healthAmount - enemy.getEnemyAttack();
+                System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
+                if (healthAmount <= 0) {
+                  System.out.println("You got killed!");
+                  playerAlive = false;
+                } else {
+                  System.out.println("Your current health level is now: " + healthAmount);
+                  return;
+                }
+              }
             }
           }
         }
@@ -252,11 +273,9 @@ public class Player {
         if (!(item instanceof Weapon)) {
           System.out.println("You can't equip that.");
         } else if (item instanceof Weapon && equippedWeapon == null) {
-          {
-            player.equipItemPlayer((Weapon) item);
-            System.out.println("You equipped [" + itemName + "]");
-            System.out.println("You now deal: " + playerAttackDamage + " damage.");
-          }
+          player.equipItemPlayer((Weapon) item);
+          System.out.println("You equipped [" + itemName + "]");
+          System.out.println("You now deal: " + playerAttackDamage + " damage.");
         } else if (item instanceof Weapon && equippedWeapon != null) {
           playerAttackDamage = playerAttackDamage - equippedWeapon.getAttackPoints();
           player.equipItemPlayer((Weapon) item);
@@ -264,8 +283,7 @@ public class Player {
           equippedWeapon = (Weapon) item;
           System.out.println("You now deal: " + playerAttackDamage + " damage.");
         }
-      } else if (!item.getName().equalsIgnoreCase(itemName))
-        System.out.println("Sorry, but you dont have an item named " + itemName);
+      }
     }
   }
 

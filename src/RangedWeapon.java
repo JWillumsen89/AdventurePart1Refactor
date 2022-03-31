@@ -8,13 +8,13 @@ public class RangedWeapon extends Weapon {
 
   }
 
-  public int attack() {
+  public void attack() {
     if (ammunition > 0) {
       ammunition = ammunition - 1;
-      return getAttackPoints();
+      return;
     } else {
       System.out.println("you don't have any ammunition");
-      return 0;
+      return;
     }
   }
 

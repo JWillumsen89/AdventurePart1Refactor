@@ -18,4 +18,8 @@ public abstract class Weapon extends Item {
   public int getAttackPoints() {
     return attackPoints;
   }
+
+  public void attack() {
+    return;
+  }
 }
