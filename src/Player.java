@@ -84,7 +84,7 @@ public class Player {
       for (Enemy enemy : currentRoom.getEnemiesRoom()) {
         if (enemy.getName().equalsIgnoreCase(attackWhichEnemy)) {
           if (enemy instanceof Enemy) {
-            if (equippedWeapon instanceof RangedWeapon)
+            //if (equippedWeapon instanceof RangedWeapon)
             enemy.setHealthPointsEnemy(enemy.getHealthPointsEnemy() - playerAttackDamage);
             System.out.println("You did: " + playerAttackDamage + " damage");
             if (enemy.getHealthPointsEnemy() <= 0) {
@@ -92,6 +92,8 @@ public class Player {
               System.out.println("Enemy is dead.");
             } else
               System.out.println("Enemy health: " + enemy.getHealthPointsEnemy());
+
+            System.out.println("Enemy did: " + enemy.getEnemyAttack() + " damage");
             return;
           }
         }
@@ -290,6 +292,14 @@ public class Player {
       System.out.println("DANGER DANGER!! GET FOOD NOW!!");
     else
       System.out.println("YOU DIED!!");
+  }
+
+  public void setHealthAmount(int healthAmount){
+    this.healthAmount = healthAmount;
+  }
+
+  public int getHealthAmount(){
+    return healthAmount;
   }
 
   public void showInventoryList() {

@@ -5,7 +5,7 @@ public class Enemy {
   private String name;
   private String description;
   private int healthPointsEnemy;
-  private int enemyAttack;
+  private int enemyAttack = 10;
   Player player = new Player();
 
   Enemy() {}
@@ -41,8 +41,11 @@ public class Enemy {
     return enemyAttack;
   }
 
-  public void attack(){
-    //)if (player.getPlayerDecision().equals()){
+  public void EnemyAttack(){
+    if (getHealthPointsEnemy() < getHealthPointsEnemy()){
+      player.setHealthAmount(player.getHealthAmount() - enemyAttack);
+      System.out.println("Enemy did: " + enemyAttack + " damage");
+    }
 
     }
   }
